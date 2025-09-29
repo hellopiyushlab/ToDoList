@@ -1,7 +1,9 @@
-const textBox =     document.querySelector("#task");
-const saveButton =  document.querySelector("#saveButton");
-const output =      document.querySelector("#output");
-saveButton.addEventListener("click", () => {
-    const text = textBox.value;
-    output.textContent = text;
-})
+const arrayOfTasks = [
+    {
+        Status: 1,
+        Task: "some task",
+        Description: "some description"
+    }
+]
+
+const mainDiv = document.querySelector("#main");

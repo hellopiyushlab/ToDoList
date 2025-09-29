@@ -3,16 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="script.js" defer></script>
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
-    <input type="text" id="task" placeholder="Enter task">
-    <br>
-    <textarea id="description" placeholder="Enter task description if any"></textarea>
-    <br>
-    <button id="saveButton">Save</button>
-    <br>
-    <p id="output"></p>
+    <div id="main">
+        <h1>TO DO</h1>
+        <div class="taskBox">
+            <div class="taskContent">
+                <div class="taskHeading">Make this Website</div>
+                <div class="taskDesc">I have no idea what I am doing</div>
+            </div>
+            <div class="completeButton">
+                <i class="fa-solid fa-check"></i>
+            </div>
+        </div>
+        <div class="taskBox">
+            <div class="taskContent">
+                <div class="taskHeading">Make this Website</div>
+                <div class="taskDesc">I have no idea what I am doing</div>
+            </div>
+            <div class="completeButton">
+                <i class="fa-solid fa-check"></i>
+            </div>
+        </div>
+        
+    </div>
+    <div id="addTaskButtonContainer">
+        <div id="addTaskButton">
+            <i class="fa-solid fa-plus"></i>
+        </div>
+    </div>
 </body>
 </html>
