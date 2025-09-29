@@ -59,6 +59,8 @@ h1 {
     display: flex; justify-content: center; align-items: center;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
+    aspect-ratio: 1/1;
+    margin-left: 10px;
 }
 .completeButton:hover {
     color: white;
