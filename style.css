@@ -1,13 +1,11 @@
 * {
     box-sizing: border-box;
-    /* margin: 0; */
     padding: 0;
 }
 
 html, body {
     height: 100%;
     font-family: "Faustina", serif;
-    /* font-weight: 900; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,7 +22,6 @@ html, body {
     justify-content: flex-start;
     overflow-y: auto;
     padding: 20px;
-    /* border: 2px solid black; */
 }
 
 h1 {
@@ -49,7 +46,7 @@ h1 {
     font-size: 24px;
 }
 .taskDesc {
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .completeButton {
@@ -95,4 +92,8 @@ h1 {
 #addTaskButton:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.taskContent {
+    cursor: grab;
 }
