@@ -1,12 +1,15 @@
 import { addTaskWindow, removeElements } from "./dom-manipulation.js"
 
+
+/// this puts all the event listeners
+
 function addTaskEventListener(addTaskButton) {
     addTaskButton.addEventListener("click", (e) => {
-        const blurBackground = addTaskWindow();
-        blurBackground.addEventListener("click", () => {
-            removeElements([blurBackground]);
-        })
-    })
+        const generatedElements = addTaskWindow();
+        generatedElements.blurBackground.addEventListener("click", () => {
+            removeElements(generatedElements);
+        });
+    });
 }
 
 export {

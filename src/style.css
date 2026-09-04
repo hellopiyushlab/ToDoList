@@ -63,9 +63,21 @@ body {
 
     background-color: color-mix(
         in srgb,
-        var(--dark-color) 60%,
+        var(--dark-color) 2%,
         transparent
     );
 
     backdrop-filter: blur(8px);
+}
+
+#add-task-window {
+    height: 300px;
+    width: 600px;
+    background-color: var(--dark-color);
+    border: var(--text-color) solid 2px;
+    position: fixed;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
