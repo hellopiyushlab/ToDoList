@@ -1,9 +1,8 @@
 // index.js
 
 import takeInput from "./take-input.js";
-import { loadBackground, loadBaseElements } from "./dom-manipulation.js";
-import { addTaskEventListener } from "./event-listeners.js";
-import {saveData} from "./data.js";
+import { loadBackground, loadBaseElements, removeElements, generateWindow } from "./dom-manipulation.js";
+import { saveData, getData } from "./data.js";
 
 // loading a background
 loadBackground(); 
@@ -14,5 +13,22 @@ const baseElements = loadBaseElements();
 const addTaskButton = baseElements.addTaskButton;
 
 // now put event listner on the button
-addTaskEventListener(addTaskButton); 
+addTaskButton.addEventListener("click", (e) => {
+
+    // when the button is clicked, the window appears
+    let generatedElements = generateWindow();
+
+    // when i submit, the elements go to saveData
+    generatedElements.submitButton.addEventListener("click", () => {
+        saveData(generatedElements);
+
+        // remove the window after submission
+        removeElements(generatedElements);
+    });
+
+    // remove the window if clicked outside
+    generatedElements.blurBackground.addEventListener("click", () => {
+        removeElements(generatedElements);
+    })
+});
 

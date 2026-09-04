@@ -1,7 +1,5 @@
 // data.js
 
-
-
 let arrayOfTasks = [];
 
 function saveData(elements) {
@@ -19,6 +17,11 @@ function createTaskObject(title) {
     }
 }
 
+function getData() {
+    return arrayOfTasks;
+}
+
 export {
-    saveData
+    saveData,
+    getData
 }
