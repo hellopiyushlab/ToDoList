@@ -30,24 +30,38 @@ function loadBaseElements() {
     addTaskButton.appendChild(plusIcon.node[0]);
     body.appendChild(addTaskButton);
 
-    return addTaskButton;
+    return {
+        addTaskButton
+    };
 }
 
-function addTaskWindow() {
+function generateWindow() {
     const blurBackground = document.createElement("div");
     blurBackground.setAttribute("id", "blur-background");
     
-    const addTaskWindow = document.createElement("div");
-    addTaskWindow.setAttribute("id", "add-task-window");
+    const window = document.createElement("div");
+    window.setAttribute("id", "window");
 
-    
-    
+    const title = document.createElement("input");
+    title.type = "text";
+    title.id = "title";
+    title.placeholder = "What's the task?";
+    window.appendChild(title);
+
+    const submitButton = document.createElement("button");
+    submitButton.type = "submit";
+    submitButton.textContent = "add task";
+    window.appendChild(submitButton);
+
     body.appendChild(blurBackground);
-    body.appendChild(addTaskWindow);
+    body.appendChild(window);
 
+    // return the elements
     return {
         blurBackground,
-        addTaskWindow
+        window,
+        submitButton,
+        title,
     };
 }
 
@@ -62,6 +76,6 @@ function removeElements(elements) {
 export {
     loadBackground,
     loadBaseElements,
-    addTaskWindow,
+    generateWindow,
     removeElements,
 }
