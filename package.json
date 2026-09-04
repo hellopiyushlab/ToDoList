@@ -17,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/hellopiyushlab/ToDoList/issues"
   },
-  "homepage": "https://github.com/hellopiyushlab/ToDoList#readme"
+  "homepage": "https://github.com/hellopiyushlab/ToDoList#readme",
+  "devDependencies": {
+    "webpack": "^5.110.2",
+    "webpack-cli": "^7.2.3",
+    "webpack-dev-server": "^6.0.0"
+  }
 }
