@@ -4,11 +4,16 @@
 - [x] generate the form
 - [x] pass the data of the form around
 - [x] show data on dom
+- [ ] make proper field for each data
+- [ ] process all data types
+- [ ] choosing categories from dropdown
+- [ ] create new categories that appear in options later on
+- [ ] category switch in dom view to only see specific tasks
 - [ ] make the completed toggle button
 - [ ] add the edit functionality
 - [ ] add the delete functionality
 - [ ] add a footer
-- [ ] make the css better
-- [ ] save data locally
+- [ ] make the css beautiful
+- [ ] save data locally in browser
 - [ ] deploy
 - [ ] save data online
