@@ -19,7 +19,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 54px;
+    font-size: 34px;
     color: var(--text-color);
     margin-top: 15px;
     margin-bottom: 15px;
@@ -32,15 +32,6 @@ body {
     width: 70vw;
 }
 
-#categories {
-    /* background-color: rgb(255, 155, 172); */
-    width: 30%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
 
 .subheading {
     height: auto;
@@ -62,4 +53,19 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 30px;
+    cursor: pointer;
+}
+
+#blur-background {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+
+    background-color: color-mix(
+        in srgb,
+        var(--dark-color) 60%,
+        transparent
+    );
+
+    backdrop-filter: blur(8px);
 }

@@ -1,4 +1,6 @@
 import "./style.css";
+import { icon } from "@fortawesome/fontawesome-svg-core";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const body = document.querySelector("body");
 
@@ -19,26 +21,34 @@ function loadBaseElements() {
     mainContent.setAttribute("id", "main-content");
     body.appendChild(mainContent);
 
-    // category header in mainContent
-    // const categories = document.createElement("div");
-    // categories.setAttribute("id", "categories");
-    // mainContent.appendChild(categories);
-
-    // const categoriesSubHeading = document.createElement("div");
-    // categoriesSubHeading.textContent = "categories";
-    // categoriesSubHeading.setAttribute("class", "subheading");
-    // categories.appendChild(categoriesSubHeading);
-
     // add task button
     const addTaskButton = document.createElement("div");
     addTaskButton.setAttribute("id", "add-task-button");
-    const plusIcon = document.createElement("i");
-    plusIcon.setAttribute("class", "fa-solid fa-plus");
-    addTaskButton.appendChild(plusIcon);
+    const plusIcon = icon(faPlus);
+    addTaskButton.appendChild(plusIcon.node[0]);
     body.appendChild(addTaskButton);
+
+    return addTaskButton;
+}
+
+function addTaskWindow() {
+    const blurBackground = document.createElement("div");
+    blurBackground.setAttribute("id", "blur-background");
+    body.appendChild(blurBackground);
+    return blurBackground;
+}
+
+
+// this function takes an array of elements and then remove them from the dom
+function removeElements(elements) {
+    for (const element of elements) {
+        element.remove();
+    }
 }
 
 export {
     loadBackground,
     loadBaseElements,
+    addTaskWindow,
+    removeElements,
 }

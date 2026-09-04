@@ -1,6 +1,7 @@
 - [x] make the prompt logic with modules
-- [ ] make the initial dom
-- [ ] put eventlisteners on the base elements and use modules for showing to do in console
+- [x] make the initial dom
+- [x] put eventlisteners on the base elements
+- [ ] generate a task add window
 - [ ] show data on dom
 - [ ] make the completed toggle button
 - [ ] add the edit functionality
