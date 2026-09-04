@@ -39,6 +39,8 @@ function addTaskWindow() {
     
     const addTaskWindow = document.createElement("div");
     addTaskWindow.setAttribute("id", "add-task-window");
+
+    
     
     body.appendChild(blurBackground);
     body.appendChild(addTaskWindow);
