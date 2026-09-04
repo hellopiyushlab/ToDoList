@@ -1,0 +1,2 @@
+- [ ] finish the logic in console
+- [ ] 

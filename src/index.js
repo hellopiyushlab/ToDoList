@@ -13,4 +13,4 @@ while (true) {
     // take input and then save it in an array (inside save-data.js)
     tasks = saveToArray(takeInput());
     console.log(tasks);
-} 
+}  
