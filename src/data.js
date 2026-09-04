@@ -3,7 +3,9 @@
 let arrayOfTasks = [];
 
 function saveData(elements) {
-    arrayOfTasks.push(createTaskObject(elements.title.value));
+    let latestTask = createTaskObject(elements.title.value);
+    arrayOfTasks.push(latestTask);
+    return latestTask;
 }
 
 

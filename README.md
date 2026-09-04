@@ -1,9 +1,9 @@
 - [x] make the prompt logic with modules
 - [x] make the initial dom
 - [x] put eventlisteners on the base elements
-- [ ] generate the form
-- [ ] pass the data of the form around
-- [ ] show data on dom
+- [x] generate the form
+- [x] pass the data of the form around
+- [x] show data on dom
 - [ ] make the completed toggle button
 - [ ] add the edit functionality
 - [ ] add the delete functionality

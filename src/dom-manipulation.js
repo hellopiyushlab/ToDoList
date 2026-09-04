@@ -73,9 +73,23 @@ function removeElements(elements) {
     }
 }
 
+// function to generate the tasks on DOM
+function generateTaskInDOM(latestTask) {
+    const mainContent = document.querySelector("#main-content");
+    const taskBox = document.createElement("div");
+    taskBox.setAttribute("class", "task-box");
+    mainContent.appendChild(taskBox);
+
+    const titleDiv = document.createElement("div");
+    titleDiv.textContent = latestTask.taskTitle;
+    titleDiv.classList.add("task-title");
+    taskBox.appendChild(titleDiv);
+}
+
 export {
     loadBackground,
     loadBaseElements,
     generateWindow,
     removeElements,
+    generateTaskInDOM
 }

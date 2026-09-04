@@ -1,7 +1,7 @@
 // index.js
 
 import takeInput from "./take-input.js";
-import { loadBackground, loadBaseElements, removeElements, generateWindow } from "./dom-manipulation.js";
+import { generateTaskInDOM, loadBackground, loadBaseElements, removeElements, generateWindow } from "./dom-manipulation.js";
 import { saveData, getData } from "./data.js";
 
 // loading a background
@@ -20,7 +20,13 @@ addTaskButton.addEventListener("click", (e) => {
 
     // when i submit, the elements go to saveData
     generatedElements.submitButton.addEventListener("click", () => {
-        saveData(generatedElements);
+
+        // save the data, and get latest task
+        let latestTask = saveData(generatedElements);
+
+        // generate the task on dom
+        console.log(latestTask);
+        generateTaskInDOM(latestTask);
 
         // remove the window after submission
         removeElements(generatedElements);
@@ -30,5 +36,8 @@ addTaskButton.addEventListener("click", (e) => {
     generatedElements.blurBackground.addEventListener("click", () => {
         removeElements(generatedElements);
     })
+
+
+
 });
 
