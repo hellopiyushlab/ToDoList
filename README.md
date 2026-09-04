@@ -1,2 +1,12 @@
-- [ ] finish the logic in console
-- [ ] 
+- [x] make the prompt logic with modules
+- [ ] make the initial dom
+- [ ] put eventlisteners on the base elements and use modules for showing to do in console
+- [ ] show data on dom
+- [ ] make the completed toggle button
+- [ ] add the edit functionality
+- [ ] add the delete functionality
+- [ ] add a footer
+- [ ] make the css better
+- [ ] save data locally
+- [ ] deploy
+- [ ] save data online

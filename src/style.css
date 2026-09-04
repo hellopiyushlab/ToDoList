@@ -5,10 +5,61 @@
 
 body {
     margin: 0;
+    height: 100vh;
+    background-color: var(--dark-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
 }
 
-#background {
-    background-color: var(--dark-color);
+#heading {
+    height: auto;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 54px;
+    color: var(--text-color);
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#main-content {
+    flex: 1;
     height: 100vh;
-    width: 100vw;
+    /* background-color: pink; */
+    width: 70vw;
+}
+
+#categories {
+    /* background-color: rgb(255, 155, 172); */
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.subheading {
+    height: auto;
+    width: auto;
+    font-size: 32px;
+    color: var(--text-color);
+}
+
+#add-task-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    height: 50px;
+    width: 50px;
+    background-color: var(--text-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
 }
