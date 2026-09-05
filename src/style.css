@@ -6,11 +6,26 @@
 body {
     margin: 0;
     height: 100vh;
-    background-color: var(--dark-color);
+    background: linear-gradient(-45deg, #fff3a9, #fdd29b, #fff3a9, #fdd29b);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
+    user-select: none;
+}
+/* Keyframes for the smooth gradient movement */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 #heading {
@@ -28,7 +43,7 @@ body {
 #main-content {
     flex: 1;
     height: 100vh;
-    /* background-color: pink; */
+    background-color: pink;
     width: 70vw;
     display: flex;
     flex-direction: column;
