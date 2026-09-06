@@ -1,117 +1,118 @@
 :root {
-  --dark-color: #1e1e24;
-  --text-color: #f5f5f7;
+  --one-color: #FBFBFF;
+  --two-color: #656565;
+  --three-color: #22031F;
+  --four-color: #A882DD;
+  --five-color: #C7EF00;
+  --shadow: rgba(14, 63, 126, 0.06) 0px 0px 0px 1px, rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 2px 2px -1px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px, rgba(42, 51, 70, 0.03) 0px 10px 10px -5px, rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
 }
 
 body {
     margin: 0;
     height: 100vh;
-    background: linear-gradient(-45deg, #fff3a9, #fdd29b, #fff3a9, #fdd29b);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
     user-select: none;
+    background-color: var(--one-color);
+    font-family: "Inter", "Noto Sans JP", sans-serif;
 }
-/* Keyframes for the smooth gradient movement */
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+
+#header {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    flex-shrink: 0;
 }
 
 #heading {
-    height: auto;
-    width: auto;
+    color: var(--four-color);
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 34px;
-    color: var(--text-color);
-    margin-top: 15px;
-    margin-bottom: 15px;
+    align-items: center;
+    width: 100%;
+    font-size: 26px;
+    font-weight: 700;
+    font-family: "WDXL Lubrifont JP N", sans-serif;
+}
+
+#settings {
+    color: var(--two-color);
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: transform .7s ease-in-out;
+}
+
+#settings:hover {
+    transform: rotate(360deg);
+    color: var(--five-color);
 }
 
 #main-content {
-    flex: 1;
-    height: 100vh;
-    background-color: pink;
-    width: 70vw;
+    border-top: solid var(--two-color) 2px;
+    width: 70%;
+    max-width: 1000px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
 }
 
-
-.subheading {
-    height: auto;
-    width: auto;
-    font-size: 32px;
-    color: var(--text-color);
-}
-
-#add-task-button {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 1000;
-    height: 50px;
-    width: 50px;
-    background-color: var(--text-color);
-    border-radius: 50%;
+#categories {
+    min-height: 48px;
+    box-sizing: border-box;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 30px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    padding-bottom: 16px;
+}
+
+.category {
+    background-color: white;
+    margin-right: 10px;
+    padding: 10px;
+    border: solid transparent 2px;
+    box-shadow: var(--shadow);
+    margin-top: 10px;
+    flex-shrink: 0;
+    font-size: 12px;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
-#blur-background {
-    position: fixed;
-    inset: 0;
-    z-index: 999;
-
-    background-color: color-mix(
-        in srgb,
-        var(--dark-color) 2%,
-        transparent
-    );
-
-    backdrop-filter: blur(8px);
+.category:hover {
+    border: solid var(--two-color) 2px;
 }
 
-#window {
-    height: 300px;
-    width: 600px;
-    background-color: var(--dark-color);
-    border: var(--text-color) solid 2px;
-    position: fixed;
-    z-index: 1000;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+#highlighted-category {
+    border: solid var(--two-color) 2px;
+
+}
+
+#tasks {
+    /* border: solid black 1px; */
+    height: fit-content;
+    width: 100%;
+    flex: 1;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-.task-box {
+.task {
+    background-color: pink;
     height: 100px;
-    width: 90%;
-    border: solid white 2px;
-    margin-top: 15px;
-}
-
-.task-title {
-    color: var(--text-color);
-    font-size: 24px;
+    margin-top: 10px;
+    border: solid var(--two-color) 2px;
+    box-shadow: var(--shadow);
 }
