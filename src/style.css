@@ -113,3 +113,30 @@ body {
     align-items: center;
 }
 
+.task {
+    width: min(700px, 100%);
+    height: content;
+    border: solid black 2px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.row1 {
+    height: content;
+    width: 100%;
+    display: flex;
+}
+
+.checkbox-container {
+    font-size: 24px;
+}
+.title {
+    margin-left: 12px;
+    font-size: 16px;
+    padding-top: 5px;
+    margin-right: auto;
+}
+.options-container {
+    padding-top: 5px
+}
