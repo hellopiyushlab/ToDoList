@@ -12,30 +12,70 @@
 <body>
     <div id="header">
         <div id="heading">やることリスト</div>
-        <div id="settings">
+        <div id="burger">
             <i class="fa-solid fa-bars"></i>
         </div>
     </div>
+
+    <div id="categories">
+            <div class="category">All Tasks</div>
+            <div class="category">Active</div>
+            <div class="category" id="highlighted-category">Completed</div>
+    </div>
+
+
     <div id="main-content">
 
-        <div id="categories">
-            <div class="category">School Work</div>
-            <div class="category">Movies List</div>
-            <div class="category" id="highlighted-category">Odin Project</div>
-            <!-- <div class="category">category 4</div>
-            <div class="category">category category</div>
-            <div class="category">category 6</div>
-            <div class="category">category 1</div>
-            <div class="category">category 2</div>
-            <div class="category">category 3</div>
-            <div class="category">category 4</div>
-            <div class="category">category category</div>
-            <div class="category">category 6</div> -->
+        <div id="side-bar">
+            <div id="projects">
+                <div id="subheading">プロジェクト:</div>
+                <div id="projects-list">
+                    <div class="project">Odin Project</div>
+                    <div class="project">Running Animation</div>
+                    <div class="project">Japanese</div>
+                </div>
+                <div id="add-project-button"><i class="fa-solid fa-plus"></i></div>
+            </div>
+            <div id="settings">
+                <div id="settings-button">
+                    セッティング
+                </div>
+            </div>
         </div>
 
         <div id="tasks">
 
             <div class="task">
+
+                <div class="row1">
+                    <div class="checkbox-container">
+                        <i class="fa-regular fa-circle"></i>
+                    </div>
+                    <div class="title">
+                        Project Title
+                    </div>
+                    <div class="options-container">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                </div>
+                
+                <div class="row2">
+                    <div class="empty-div"></div>
+                    <div class="description description-expanded">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi inventore dolorem libero molestiae. Incidunt nihil quas dolorum, repudiandae facere dolore suscipit, molestias, ipsa praesentium ipsum soluta fugit quam. Soluta, ipsam!
+                    </div>
+                </div>
+                
+                <div class="row3">
+                    <div class="empty-div"></div>
+                    <div class="date">September 6, 2026</div>
+                    <div class="priority-color"></div>
+                    <div class="priority-div">Low Priority</div>
+                </div>
+
+            </div>
+
+            <div class="task task-completed">
 
                 <div class="row1">
                     <div class="checkbox-container">
@@ -60,8 +100,9 @@
                     <div class="empty-div"></div>
                     <div class="date">September 6, 2026</div>
                     <div class="priority-color"></div>
-                    <div class="priority-div">Medium</div>
+                    <div class="priority-div">Low Priority</div>
                 </div>
+                
             </div>
 
         </div>
