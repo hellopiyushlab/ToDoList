@@ -52,6 +52,8 @@ let arrayOfTasks = [
     // }
 ];
 
+let projects = [];
+
 function saveData(title, description, priority, project) {
     let latestTask = createTaskObject(title, description, priority, project);
     arrayOfTasks.push(latestTask);
@@ -79,19 +81,28 @@ function getData() {
     return arrayOfTasks;
 }
 
+
+
 function getProjects() {
-    const projects = [...new Set(
-    arrayOfTasks
-        .map(task => task.Project)
-        .filter(project => project !== "none")
-    )];
-    return projects;
+    // i, personally, have no idea what is going on here
+    const taskProjects = arrayOfTasks
+        .map(task => task.taskProject)     
+        .filter(p => p && p !== "Miscellaneous");
+    return [...new Set([...projects, ...taskProjects])];
 }
 
+function addProject(projectFormData) {
+    const project = projectFormData.get("project-name");
 
+    if (!projects.includes(project)) {
+        projects.push(project);
+    }
+    console.log(projects);
+}
 
 export {
     saveData,
     getData,
-    getProjects
+    getProjects,
+    addProject
 }

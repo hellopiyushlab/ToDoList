@@ -365,6 +365,7 @@ i {
     font-size: 15px;
     cursor: pointer;
     transition: height 0.3s ease;
+    line-height: 1.5;
     /* remove align-content: center — it fights with height animation */
 }
 
@@ -391,11 +392,19 @@ i {
 .priority-color {
     width: 10px;
     height: 10px;
-    background-color: var(--priority-low);
+    background-color: var(--one-color);
     margin-right: 10px;
     border-radius: 20px;
 }
-
+.high-priority-color {
+    background-color: var(--priority-high);
+}
+.medium-priority-color {
+    background-color: var(--priority-medium);
+}
+.low-priority-color {
+    background-color: var(--priority-low);
+}
 #add-task-button {
     position: fixed;
     left: 50%;

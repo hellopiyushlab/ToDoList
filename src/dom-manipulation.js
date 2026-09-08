@@ -39,7 +39,7 @@ function loadBaseElements() {
 
 function generateAddTaskWindow(projects) {
 
-
+    console.log(projects);
     // select the body
     const body = document.querySelector("body");
 
@@ -191,7 +191,8 @@ function generateTaskInDOM(latestTask) {
             description.textContent = latestTask.taskDescription;
             row2.appendChild(description);
         }
-        
+
+        let priorityColor;
         if (
             latestTask.taskPriority != "none" || latestTask.taskProject != "Miscellaneous"
         ) {
@@ -218,7 +219,7 @@ function generateTaskInDOM(latestTask) {
             date.setAttribute("class", "date");
             row3.appendChild(date);
 
-            const priorityColor = document.createElement("div");
+            priorityColor = document.createElement("div");
             priorityColor.setAttribute("class", "priority-color");
             row3.appendChild(priorityColor);
 
@@ -227,6 +228,15 @@ function generateTaskInDOM(latestTask) {
             priority.setAttribute("class", "priority-div");
             row3.appendChild(priority);
         } 
+
+        if (latestTask.taskPriority === "low") {
+            priorityColor.classList.add("low-priority-color");
+        } else if (latestTask.taskPriority === "medium") {
+            priorityColor.classList.add("medium-priority-color");
+        } else if (latestTask.taskPriority === "high") {
+            priorityColor.classList.add("high-priority-color");
+        }
+
         return {
             description,
         }

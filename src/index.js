@@ -3,9 +3,17 @@ import { generateAddTaskWindow, generateTaskInDOM, expandDescription } from "./d
 import "./style.css";
 // import takeInput from "./take-input.js";
 // import { generateTaskInDOM, loadBackground, loadBaseElements, removeElements, generateWindow } from "./dom-manipulation.js";
-import { saveData, getData, getProjects } from "./data.js";
+import { saveData, getData, getProjects, addProject } from "./data.js";
 
+// event listener for adding projects
 
+const addProjectBox = document.querySelector("#add-project-box");
+addProjectBox.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const projectFormData = new FormData(addProjectBox);
+    console.log(projectFormData);
+    addProject(projectFormData);
+})
 
 // put event listener on add-task-button
 const addTaskButton = document.querySelector("#add-task-button");
@@ -46,37 +54,15 @@ addTaskButton.addEventListener("click", () => {
 
         const latestTaskElements = generateTaskInDOM(latestTask);
         console.log(latestTaskElements);
-        latestTaskElements.description.addEventListener("click", (event)=> {
-            // ffunction deal with description lmao
-            expandDescription(event.target);
-        });
+
+        // event listener to expact the description
+        if (latestTask.taskDescription != "") {
+            latestTaskElements.description.addEventListener("click", (event)=> {
+                // ffunction deal with description lmao
+                expandDescription(event.target);
+            });
+        }
+        
     })
 })
 
-// addTaskButton.addEventListener("click", (e) => {
-
-//     // when the button is clicked, the window appears
-//     let generatedElements = generateWindow();
-
-//     // when i submit, the elements go to saveData
-//     generatedElements.submitButton.addEventListener("click", () => {
-
-//         // save the data, and get latest task
-//         let latestTask = saveData(generatedElements);
-
-//         // generate the task on dom
-//         console.log(latestTask);
-//         generateTaskInDOM(latestTask);
-
-//         // remove the window after submission
-//         removeElements(generatedElements);
-//     });
-
-//     // remove the window if clicked outside
-//     generatedElements.blurBackground.addEventListener("click", () => {
-//         removeElements(generatedElements);
-//     })
-
-
-
-// });

@@ -10,6 +10,9 @@
 - [x] make expanded description work
 - [x] make priority work
 - [ ] make projects work
+    - [x] take input of projects
+    - [ ] render projects
+    - [x] show projects inside task
 - [ ] make side bar appear and disappear
 - [ ] make switching task state work
 - [ ] make categories tabs work
