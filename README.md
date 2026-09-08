@@ -10,6 +10,7 @@
 - [ ] make expanded description work
 - [ ] make priority work
 - [ ] make projects work
+- [ ] make side bar appear and disappear
 - [ ] make switching task state work
 - [ ] make categories tabs work
 - [ ] make projects work

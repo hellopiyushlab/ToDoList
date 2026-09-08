@@ -91,7 +91,7 @@ function generateAddTaskWindow(projects) {
     taskProject.name = "project";
 
     const noProject = document.createElement("option");
-    noProject.value = "none";
+    noProject.value = "Miscellaneous";
     noProject.selected = true;
     noProject.textContent = "No Project";
     taskProject.appendChild(noProject);
@@ -191,9 +191,41 @@ function generateTaskInDOM(latestTask) {
             row2.appendChild(description);
         }
         
-        const row3 = document.createElement("div");
-        row3.class = "row3";
-        // task.appendChild(row3);
+        if (
+            latestTask.taskPriority != "none" || latestTask.taskProject != "none"
+        ) {
+            const row3 = document.createElement("div");
+            row3.setAttribute("class", "row3");
+            task.appendChild(row3);
+
+            const emptyDiv = document.createElement("div");
+            emptyDiv.setAttribute("class", "empty-div");
+            row3.appendChild(emptyDiv);
+
+            const projectInfo = document.createElement("div");
+            projectInfo.textContent = latestTask.taskProject;
+            projectInfo.setAttribute("class", "project-info");
+            row3.appendChild(projectInfo);
+
+            const breakElement = document.createElement("div");
+            breakElement.textContent = "|";
+            breakElement.setAttribute("class", "break");
+            row3.appendChild(breakElement);
+
+            const date = document.createElement("div");
+            // add date text content after converting here
+            date.setAttribute("class", "date");
+            row3.appendChild(date);
+
+            const priorityColor = document.createElement("div");
+            priorityColor.setAttribute("class", "priority-color");
+            row3.appendChild(priorityColor);
+
+            const priority = document.createElement("div");
+            priority.textContent = latestTask.taskPriority.charAt(0).toUpperCase() + latestTask.taskPriority.slice(1) + " Piority";
+            priority.setAttribute("class", "priority-div");
+            row3.appendChild(priority);
+        }
 }
 
 export {
