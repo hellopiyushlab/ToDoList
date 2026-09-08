@@ -4,16 +4,16 @@
 - [x] generate the form
 - [x] pass the data of the form around
 - [x] show data on dom
-- [ ] make proper field for each data
-- [ ] process all data types
-- [ ] choosing categories from dropdown
-- [ ] create new categories that appear in options later on
-- [ ] category switch in dom view to only see specific tasks
-- [ ] make the completed toggle button
-- [ ] add the edit functionality
-- [ ] add the delete functionality
-- [ ] add a footer
-- [ ] make the css beautiful
-- [ ] save data locally in browser
-- [ ] deploy
-- [ ] save data online
+- [x] make proper field for each data
+- [x] make a base css to show the data
+- [ ] make description work
+- [ ] make expanded description work
+- [ ] make priority work
+- [ ] make projects work
+- [ ] make switching task state work
+- [ ] make categories tabs work
+- [ ] make projects work
+- [ ] make the edit and delete for tasks work
+- [ ] make the edit and delete for projects work
+- [ ] make dark mode work
+- [ ] make settings
