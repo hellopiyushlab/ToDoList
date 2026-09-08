@@ -5,6 +5,9 @@
   --three-color: #22031F;
   --four-color: #A882DD;
   --five-color: #C7EF00;
+  --priority-high:   #E05252;  /* red */
+    --priority-medium: #E5B84B;  /* yellow */
+    --priority-low:    #65B86A;  /* green */
   --shadow: rgba(14, 63, 126, 0.06) 0px 0px 0px 1px, rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 2px 2px -1px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px, rgba(42, 51, 70, 0.03) 0px 10px 10px -5px, rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
 }
 
@@ -22,7 +25,7 @@ body {
 
 #header {
     display: flex;
-    height: 50px;
+    height: 70px;
     align-items: center;
     width: 100%;
     position: relative;
@@ -35,7 +38,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    font-size: 26px;
+    font-size: 36px;
     font-weight: 700;
     font-family: "WDXL Lubrifont JP N", sans-serif;
 }
@@ -115,28 +118,74 @@ body {
 
 .task {
     width: min(700px, 100%);
-    height: content;
-    border: solid black 2px;
-    padding: 12px;
+    border: solid var(--two-color) 2px;
+    padding: 12px 14px;
     display: flex;
     flex-direction: column;
+    box-shadow: var(--shadow);
 }
 
 .row1 {
     height: content;
     width: 100%;
     display: flex;
+    align-items: center;
 }
-
 .checkbox-container {
     font-size: 24px;
+    width: 6%;
+    cursor: pointer;
 }
 .title {
-    margin-left: 12px;
     font-size: 16px;
-    padding-top: 5px;
     margin-right: auto;
+    font-weight: 500;
 }
 .options-container {
-    padding-top: 5px
+    padding-top: 5px;
+    cursor: pointer;
+}
+
+.row2 {
+    display: flex;
+    width: 100%;
+    margin-top: 4px;
+}
+.empty-div { 
+    width: 6%;
+}
+.description {
+    font-size: 15px;
+    width: 95%;
+    height: 24px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    align-content: center;
+}
+
+.description-expanded {
+    height: auto;        
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+}
+
+.row3 {
+    padding-top: 8px;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    font-size: 12px;
+    align-items: center;
+}
+.date {
+    margin-right: auto;
+}
+.priority-color {
+    width: 10px;
+    height: 10px;
+    background-color: var(--priority-medium);
+    margin-right: 10px;
+    border-radius: 20px;
 }
