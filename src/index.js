@@ -10,8 +10,22 @@ import { saveData, getData, getProjects } from "./data.js";
 // put event listener on add-task-button
 const addTaskButton = document.querySelector("#add-task-button");
 
-addTaskButton.addEventListener("click", (event) => {
+// add event listener to display the window
+addTaskButton.addEventListener("click", () => {
     generateAddTaskWindow(getProjects());
+
+    // add the submit event listener on the form itself
+    const addTaskForm = document.querySelector("#add-task-form");
+    addTaskForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        // show the form data
+        const formData = new FormData(addTaskForm);
+        console.log(formData.get("task-title"));
+        console.log(formData.get("task-description"));
+        console.log(formData.get("priority"));
+        console.log(formData.get("project"));
+    })
 })
 
 // addTaskButton.addEventListener("click", (e) => {

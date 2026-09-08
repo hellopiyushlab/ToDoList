@@ -1,54 +1,55 @@
 // data.js
 
 let arrayOfTasks = [
-    {
-        id: "1",
-        taskTitle: "Learn JavaScript",
-        Project: "Odin Project",
-        status: false
-    },
-    {
-        id: "2",
-        taskTitle: "Draw for 30 minutes",
-        Project: "Art",
-        status: false
-    },
-    {
-        id: "3",
-        taskTitle: "Build Todo List",
-        Project: "Odin Project",
-        status: false
-    },
-    {
-        id: "4",
-        taskTitle: "Watch anime",
-        Project: "none",
-        status: true
-    },
-    {
-        id: "5",
-        taskTitle: "Read a book",
-        Project: "Personal",
-        status: false
-    },
-    {
-        id: "6",
-        taskTitle: "Practice CSS",
-        Project: "Odin Project",
-        status: false
-    },
-    {
-        id: "7",
-        taskTitle: "Go for a walk",
-        Project: "Personal",
-        status: true
-    },
-    {
-        id: "8",
-        taskTitle: "Clean room",
-        Project: "none",
-        status: false
-    }
+    // dummy data :
+    // {
+    //     id: "1",
+    //     taskTitle: "Learn JavaScript",
+    //     Project: "Odin Project",
+    //     status: false
+    // },
+    // {
+    //     id: "2",
+    //     taskTitle: "Draw for 30 minutes",
+    //     Project: "Art",
+    //     status: false
+    // },
+    // {
+    //     id: "3",
+    //     taskTitle: "Build Todo List",
+    //     Project: "Odin Project",
+    //     status: false
+    // },
+    // {
+    //     id: "4",
+    //     taskTitle: "Watch anime",
+    //     Project: "none",
+    //     status: true
+    // },
+    // {
+    //     id: "5",
+    //     taskTitle: "Read a book",
+    //     Project: "Personal",
+    //     status: false
+    // },
+    // {
+    //     id: "6",
+    //     taskTitle: "Practice CSS",
+    //     Project: "Odin Project",
+    //     status: false
+    // },
+    // {
+    //     id: "7",
+    //     taskTitle: "Go for a walk",
+    //     Project: "Personal",
+    //     status: true
+    // },
+    // {
+    //     id: "8",
+    //     taskTitle: "Clean room",
+    //     Project: "none",
+    //     status: false
+    // }
 ];
 
 function saveData(elements) {
@@ -59,11 +60,17 @@ function saveData(elements) {
 
 
 // factory function for creating objects
-function createTaskObject(title) {
-    const taskTitle = title;
+function createTaskObject(title, description, priority, project) {
+    const title = title;
+    const description = description;
+    const priority = priority;
+    const project = project;
     const id = crypto.randomUUID(); 
     return {
-        taskTitle,
+        title,
+        description,
+        priority,
+        project,
         id,
     }
 }
