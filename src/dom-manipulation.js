@@ -1,6 +1,8 @@
 import "./style.css";
 import { icon } from "@fortawesome/fontawesome-svg-core";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faCircle } from "@fortawesome/free-regular-svg-icons";
+import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 
 // this one is for anything relating dom
 
@@ -136,15 +138,48 @@ function removeElements(elements) {
 
 // function to generate the tasks on DOM
 function generateTaskInDOM(latestTask) {
-    const mainContent = document.querySelector("#main-content");
-    const taskBox = document.createElement("div");
-    taskBox.setAttribute("class", "task-box");
-    mainContent.appendChild(taskBox);
+    
+    const tasks = document.querySelector("#tasks");
 
-    const titleDiv = document.createElement("div");
-    titleDiv.textContent = latestTask.taskTitle;
-    titleDiv.classList.add("task-title");
-    taskBox.appendChild(titleDiv);
+    const task = document.createElement("div");
+    task.setAttribute("class", "task");
+    tasks.appendChild(task);
+
+        const row1 = document.createElement("div");
+        row1.setAttribute("class", "row1");
+        task.appendChild(row1);
+
+            const checkboxContainer = document.createElement("div");
+            checkboxContainer.setAttribute("class", "checkbox-container");
+            row1.appendChild(checkboxContainer);
+
+                const uncheckedIcon = document.createElement("i");
+                uncheckedIcon.classList.add("fa-regular", "fa-circle");
+                checkboxContainer.appendChild(uncheckedIcon);
+
+            const title = document.createElement("div");
+            title.setAttribute("class", "title");
+            title.textContent = latestTask.taskTitle;
+            row1.appendChild(title);
+
+            const optionsContainer = document.createElement("div");
+            optionsContainer.setAttribute("class", "options-container");
+            row1.appendChild(optionsContainer);
+
+                const optionsIcon = document.createElement("i");
+                optionsIcon.classList.add("fa-solid", "fa-ellipsis");
+                optionsContainer.appendChild(optionsIcon);
+
+
+
+        // need some if else for the other rows
+
+        const row2 = document.createElement("div");
+        row2.class = "row2";
+        // task.appendChild(row2);
+        const row3 = document.createElement("div");
+        row3.class = "row3";
+        // task.appendChild(row3);
 }
 
 export {
