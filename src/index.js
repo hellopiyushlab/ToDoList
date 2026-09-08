@@ -1,8 +1,6 @@
 // index.js
-import { generateAddTaskWindow, generateTaskInDOM, expandDescription } from "./dom-manipulation.js";
+import { generateAddTaskWindow, generateTaskInDOM, expandDescription, renderProjectInSidebar } from "./dom-manipulation.js";
 import "./style.css";
-// import takeInput from "./take-input.js";
-// import { generateTaskInDOM, loadBackground, loadBaseElements, removeElements, generateWindow } from "./dom-manipulation.js";
 import { saveData, getData, getProjects, addProject } from "./data.js";
 
 // event listener for adding projects
@@ -13,6 +11,7 @@ addProjectBox.addEventListener("submit", (event) => {
     const projectFormData = new FormData(addProjectBox);
     console.log(projectFormData);
     addProject(projectFormData);
+    renderProjectInSidebar(projectFormData);
 })
 
 // put event listener on add-task-button

@@ -285,8 +285,22 @@ function expandDescription(el) {
     }
 }
 
+function renderProjectInSidebar(projectFormData) {
+    const projectsList = document.querySelector("#projects-list");
+    const project = projectFormData.get("project-name");
+        const projectElement = document.createElement("div");
+        projectElement.setAttribute("class", "project");
+        console.log(project);
+        projectElement.textContent = project;
+        const dotIcon = document.createElement("i");
+        dotIcon.classList.add("fa-solid", "fa-ellipsis");
+        projectElement.appendChild(dotIcon);
+        projectsList.appendChild(projectElement);
+}
+
 export {
     generateAddTaskWindow,
     generateTaskInDOM,
-    expandDescription
+    expandDescription,
+    renderProjectInSidebar
 }
