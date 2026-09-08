@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/fcc2ba404d.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=WDXL+Lubrifont+JP+N&display=swap');
+    </style>
+    <title>Document</title>
+<script defer src="main.js"></script></head>
+<body>
+    <div id="header" class="">
+        <div id="heading">やることリスト</div>
+        <div id="burger">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div id="change-mode-button">
+            <i class="fa-regular fa-moon"></i>
+        </div>
+    </div>
+
+    <div id="categories" class="">
+            <div class="category all-tasks-category">All Tasks</div>
+            <div class="category active-category">Active</div>
+            <div class="category completed-category" id="highlighted-category">Completed</div>
+    </div>
+
+
+    <div id="main-content" class="">
+
+        <div id="side-bar">
+            <div id="projects">
+                <div id="subheading">プロジェクト:
+                    <!-- <div id="add-project-button">
+                        <i class="fa-solid fa-plus"></i>
+                    </div> -->
+                </div>
+                <!-- appears when add project button is clicked -->
+                <form id="add-project-box">
+                    <input
+                        type="text"
+                        id="project-name"
+                        name="project-name"
+                        placeholder="Add New Project"
+                    >
+                </form>
+                <!-- <div id="projects-list">
+                    <div class="project active-project">Miscellaneous<i class="fa-solid fa-ellipsis"></i></div>
+                    <div class="project">Project That Takes Multiple Lines<i class="fa-solid fa-ellipsis"></i></div>
+                    <div class="project">
+                        日本語のプロジェクト
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                </div> -->
+                
+            </div>
+            <div id="settings">
+                <div id="settings-button">
+                    セッティング
+                </div>
+            </div>
+        </div>
+
+        <div id="tasks">
+
+            <!-- <div class="task">
+
+                <div class="row1">
+                    <div class="checkbox-container">
+                        <i class="fa-regular fa-circle"></i>
+                    </div>
+                    <div class="title">
+                        Project Title
+                    </div>
+                    <div class="options-container">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                </div>
+                
+                <div class="row2">
+                    <div class="empty-div"></div>
+                    <div class="description description-expanded">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi inventore dolorem libero molestiae. Incidunt nihil quas dolorum, repudiandae facere dolore suscipit, molestias, ipsa praesentium ipsum soluta fugit quam. Soluta, ipsam!
+                    </div>
+                </div>
+                
+                <div class="row3">
+                    <div class="empty-div"></div>
+                    <div class="project-info">Miscellaneous</div>
+                    <div class="break">|</div>
+                    <div class="date">September 6, 2026</div>
+                    <div class="priority-color"></div>
+                    <div class="priority-div">Low Priority</div>
+                </div>
+
+            </div> -->
+
+            <!-- <div class="task task-completed">
+
+                <div class="row1">
+                    <div class="checkbox-container">
+                        <i class="fa-regular fa-circle-check"></i>
+                    </div>
+                    <div class="title">
+                        Project Title
+                    </div>
+                    <div class="options-container">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                </div>
+                
+                <div class="row2">
+                    <div class="empty-div"></div>
+                    <div class="description description-expanded">
+                        記憶の机は静かだ。珍しい影が読んだ。懐かしい広場が曇りを受け取って、空気に忘れた。思いを寝て、寝た。
+                        夢が受け取った言葉は、古い。机を覚えて、聞いた。夢は記憶を聞いた。雨が寝て、知らせは新しい。雨は静かだ。涼しい机が春を話したが、立って、夢はあたたかい。
+                        本棚は机を残したが、にぎやかだ。秋が窓に立つ。街が読む。曇りの坂は穏やかだ。橋が時間に受け取る。春の駅は暗い。
+                    </div>
+                </div>
+                
+                <div class="row3">
+                    <div class="empty-div"></div>
+                    <div class="project-info">Odin Project</div>
+                    <div class="break">|</div>
+                    <div class="date">September 6, 2026</div>
+                    <div class="priority-color"></div>
+                    <div class="priority-div">Low Priority</div>
+                </div>
+                
+            </div> -->
+
+        </div>
+    </div>
+
+    <div id="add-task-button">
+        <i class="fa-solid fa-plus"></i>
+    </div>
+
+    <!-- <div id="add-task-window">
+        <form id="add-task-form">
+
+            <div id="add-task-options">
+                <input 
+                    type="date"
+                    id="task-date"
+                    name="date"
+                >
+
+                <select id="task-priority" name="priority">
+                    <option value="none" selected>No priority</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+
+
+                <select id="task-project" name="project" required>
+                    <option value="none" disabled selected>Select a project</option>
+                    <option value="project-1">Project 1</option>
+                    <option value="project-2">Project 2</option>
+                    <option value="project-3">Project 3</option>
+                </select>
+            </div>
+            <input
+                type="text"
+                id="task-title"
+                name="task-title"
+                placeholder="Title: Do Something, Anything"
+                required
+            >
+            <textarea
+                id="task-description"
+                name="task-description"
+                placeholder="Details: You can even add sub-tasks here!"
+            ></textarea>
+
+            <button type="submit" id="submit-button">Add task</button>
+
+        </form>
+    </div> -->
+    
+</body>
+</html>

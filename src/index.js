@@ -1,18 +1,19 @@
 // index.js
+import { generateAddTaskWindow } from "./dom-manipulation.js";
 import "./style.css";
 // import takeInput from "./take-input.js";
 // import { generateTaskInDOM, loadBackground, loadBaseElements, removeElements, generateWindow } from "./dom-manipulation.js";
-// import { saveData, getData } from "./data.js";
+import { saveData, getData, getProjects } from "./data.js";
 
-// // loading a background
-// loadBackground(); 
 
-// /// load the base elements, 
-// /// and then take the add task button from it
-// const baseElements = loadBaseElements();
-// const addTaskButton = baseElements.addTaskButton;
 
-// // now put event listner on the button
+// put event listener on add-task-button
+const addTaskButton = document.querySelector("#add-task-button");
+
+addTaskButton.addEventListener("click", (event) => {
+    generateAddTaskWindow(getProjects());
+})
+
 // addTaskButton.addEventListener("click", (e) => {
 
 //     // when the button is clicked, the window appears
