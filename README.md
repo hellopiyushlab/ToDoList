@@ -6,9 +6,9 @@
 - [x] show data on dom
 - [x] make proper field for each data
 - [x] make a base css to show the data
-- [ ] make description work
-- [ ] make expanded description work
-- [ ] make priority work
+- [x] make description work
+- [x] make expanded description work
+- [x] make priority work
 - [ ] make projects work
 - [ ] make side bar appear and disappear
 - [ ] make switching task state work

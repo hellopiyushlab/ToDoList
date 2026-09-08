@@ -337,7 +337,7 @@ i {
 .empty-div { 
     width: 6%;
 }
-.description {
+/* .description {
     font-size: 15px;
     width: 95%;
     height: 24px;
@@ -345,6 +345,8 @@ i {
     overflow: hidden;
     text-overflow: ellipsis;
     align-content: center;
+    cursor: pointer;
+    transition: height 0.3s ease;
 }
 
 .description-expanded {
@@ -352,6 +354,24 @@ i {
     white-space: normal;
     overflow: visible;
     text-overflow: unset;
+    line-height: 1.5;
+} */
+ .description {
+    height: 24px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 95%;
+    font-size: 15px;
+    cursor: pointer;
+    transition: height 0.3s ease;
+    /* remove align-content: center — it fights with height animation */
+}
+
+.description-expanded {
+    white-space: normal;
+    text-overflow: unset;
+    line-height: 1.5;
 }
 
 .row3 {

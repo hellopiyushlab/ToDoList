@@ -1,5 +1,5 @@
 // index.js
-import { generateAddTaskWindow, generateTaskInDOM } from "./dom-manipulation.js";
+import { generateAddTaskWindow, generateTaskInDOM, expandDescription } from "./dom-manipulation.js";
 import "./style.css";
 // import takeInput from "./take-input.js";
 // import { generateTaskInDOM, loadBackground, loadBaseElements, removeElements, generateWindow } from "./dom-manipulation.js";
@@ -44,9 +44,13 @@ addTaskButton.addEventListener("click", () => {
         const addTaskWindow = document.querySelector("#add-task-window");
         addTaskWindow.remove();
 
-        generateTaskInDOM(latestTask);
+        const latestTaskElements = generateTaskInDOM(latestTask);
+        console.log(latestTaskElements);
+        latestTaskElements.description.addEventListener("click", (event)=> {
+            // ffunction deal with description lmao
+            expandDescription(event.target);
+        });
     })
-
 })
 
 // addTaskButton.addEventListener("click", (e) => {

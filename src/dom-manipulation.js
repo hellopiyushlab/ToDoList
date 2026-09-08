@@ -173,6 +173,7 @@ function generateTaskInDOM(latestTask) {
         // need some if else for the other rows
 
         // if there is a description, show it
+        let description;
 
         if (latestTask.taskDescription != "") {
 
@@ -185,14 +186,14 @@ function generateTaskInDOM(latestTask) {
             emptyDiv.setAttribute("class", "empty-div");
             row2.appendChild(emptyDiv);
 
-            const description = document.createElement("div");
+            description = document.createElement("div");
             description.setAttribute("class", "description");
             description.textContent = latestTask.taskDescription;
             row2.appendChild(description);
         }
         
         if (
-            latestTask.taskPriority != "none" || latestTask.taskProject != "none"
+            latestTask.taskPriority != "none" || latestTask.taskProject != "Miscellaneous"
         ) {
             const row3 = document.createElement("div");
             row3.setAttribute("class", "row3");
@@ -222,16 +223,60 @@ function generateTaskInDOM(latestTask) {
             row3.appendChild(priorityColor);
 
             const priority = document.createElement("div");
-            priority.textContent = latestTask.taskPriority.charAt(0).toUpperCase() + latestTask.taskPriority.slice(1) + " Piority";
+            priority.textContent = latestTask.taskPriority.charAt(0).toUpperCase() + latestTask.taskPriority.slice(1) + " Priority";
             priority.setAttribute("class", "priority-div");
             row3.appendChild(priority);
+        } 
+        return {
+            description,
         }
 }
 
+
+function expandDescription(el) {
+    const isExpanded = el.classList.contains('description-expanded');
+
+    if (isExpanded) {
+        // COLLAPSING
+        // 1. Lock in the current rendered height first (can't animate from "auto")
+        el.style.height = el.scrollHeight + 'px';
+        el.offsetHeight; // force reflow so the browser registers the starting height
+
+        // 2. Remove expanded class (this changes white-space back to nowrap)
+        el.classList.remove('description-expanded');
+
+        // 3. Now animate down to the collapsed height
+        requestAnimationFrame(() => {
+            el.style.height = '24px';
+        });
+    } else {
+        // EXPANDING
+        // 1. Add the class first so white-space becomes normal + line-height applies
+        el.classList.add('description-expanded');
+
+        // 2. NOW measure scrollHeight (must happen after white-space changes,
+        //    otherwise you're measuring the single-line nowrap height)
+        const targetHeight = el.scrollHeight + 'px';
+
+        // 3. Reset height to the starting point and force reflow
+        el.style.height = '24px';
+        el.offsetHeight;
+
+        // 4. Animate to the real target height
+        requestAnimationFrame(() => {
+            el.style.height = targetHeight;
+        });
+
+        el.addEventListener('transitionend', function handler(e) {
+            if (e.propertyName !== 'height') return;
+            el.style.height = 'auto'; // let it breathe if container resizes later
+            el.removeEventListener('transitionend', handler);
+        });
+    }
+}
+
 export {
-    loadBackground,
-    loadBaseElements,
     generateAddTaskWindow,
-    removeElements,
-    generateTaskInDOM
+    generateTaskInDOM,
+    expandDescription
 }
