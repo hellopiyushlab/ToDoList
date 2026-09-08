@@ -60,6 +60,7 @@ body {
     /* border-top: solid var(--two-color) 2px; */
     width: 90%;
     max-width: 1000px;
+    min-width: 700px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -105,6 +106,7 @@ body {
     /* border: solid black 1px; */
     height: fit-content;
     width: 100%;
+    min-width: 700px;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -112,11 +114,66 @@ body {
     align-items: center;
 }
 
-.task {
+.task:not(#task-expanded)  {
     /* background-color: pink; */
     width: min(700px, 100%);
+    min-width: 700px;
     height: 100px;
     margin-top: 10px;
     /* border: solid var(--two-color) 2px; */
     box-shadow: var(--shadow);
+
+    /* grid */
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr 3fr 6fr 1fr;
+}
+#task-expanded {
+    /* background-color: pink; */
+    width: min(700px, 100%);
+    min-width: 700px;
+    height: 100px;
+    margin-top: 10px;
+    /* border: solid var(--two-color) 2px; */
+    box-shadow: var(--shadow);
+    display: grid;
+    height: auto;
+    grid-template-rows: auto auto auto; /* everything sizes to content */
+    grid-template-columns: 1fr 3fr 6fr 1fr;
+}
+
+.task div {
+    box-sizing: border-box;
+    border: solid black 1px;
+}
+
+.check-box-container {
+    grid-area: 1 / 1 / 4 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+.title-container {
+    grid-area: 1 / 2 / 2 / 4;
+    display: flex; align-items: center;
+}
+.date-container {
+    grid-area: 3 / 2 / 4 / 3;
+    display: flex; align-items: center;
+}
+.desc-container {
+    display: flex; align-items: center;
+    grid-area: 2 / 2 / 3 / 5;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.priority-container {
+    display: flex; align-items: center;
+    grid-area: 3 / 3 / 4 / 5;
+}
+.options-container {
+    display: flex; align-items: center;
+    grid-area: 1 / 4 / 2 / 5;;
 }
