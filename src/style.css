@@ -195,20 +195,32 @@ i {
 .project {
     cursor: pointer;
     margin-bottom: 5px;
-    cursor: pointer;
     flex-shrink: 0;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 5px 10px;
     border-radius: 10px;
     font-size: 15px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    height: min(30px, content);
+    height: 30px;
     position: relative;
+
+    /* important */
+    width: 100%;
+    box-sizing: border-box;
 }
 
+.project span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    min-width: 0;
+    flex: 1;
+}
+
+.project i {
+    flex-shrink: 0;
+    margin-left: 8px;
+}
 .project:hover {
     background-color: var(--active-background-color);
 }
@@ -533,8 +545,11 @@ input:focus {
 
 
 #add-task-options {
-    border-bottom: 2px solid var(--two-color);
+    /* border-bottom: 2px solid var(--two-color); */
     margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 

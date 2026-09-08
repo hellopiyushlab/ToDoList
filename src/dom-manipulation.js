@@ -286,16 +286,22 @@ function expandDescription(el) {
 }
 
 function renderProjectInSidebar(projectFormData) {
+
     const projectsList = document.querySelector("#projects-list");
+
     const project = projectFormData.get("project-name");
-        const projectElement = document.createElement("div");
-        projectElement.setAttribute("class", "project");
-        console.log(project);
-        projectElement.textContent = project;
-        const dotIcon = document.createElement("i");
-        dotIcon.classList.add("fa-solid", "fa-ellipsis");
-        projectElement.appendChild(dotIcon);
-        projectsList.appendChild(projectElement);
+
+    const projectElement = document.createElement("div");
+    projectElement.setAttribute("class", "project");
+
+    const projectName = document.createElement("span");
+    projectName.textContent = project;
+
+    const dotIcon = document.createElement("i");
+    dotIcon.classList.add("fa-solid", "fa-ellipsis");
+
+    projectElement.append(projectName, dotIcon);
+    projectsList.appendChild(projectElement);
 }
 
 export {
