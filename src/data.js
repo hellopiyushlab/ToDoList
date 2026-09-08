@@ -52,8 +52,8 @@ let arrayOfTasks = [
     // }
 ];
 
-function saveData(elements) {
-    let latestTask = createTaskObject(elements.title.value);
+function saveData(title, description, priority, project) {
+    let latestTask = createTaskObject(title, description, priority, project);
     arrayOfTasks.push(latestTask);
     return latestTask;
 }
@@ -61,16 +61,16 @@ function saveData(elements) {
 
 // factory function for creating objects
 function createTaskObject(title, description, priority, project) {
-    const title = title;
-    const description = description;
-    const priority = priority;
-    const project = project;
+    const taskTitle = title;
+    const taskDescription = description;
+    const taskPriority = priority;
+    const taskProject = project;
     const id = crypto.randomUUID(); 
     return {
-        title,
-        description,
-        priority,
-        project,
+        taskTitle,
+        taskDescription,
+        taskPriority,
+        taskProject,
         id,
     }
 }

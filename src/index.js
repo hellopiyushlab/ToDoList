@@ -21,11 +21,21 @@ addTaskButton.addEventListener("click", () => {
 
         // show the form data
         const formData = new FormData(addTaskForm);
-        console.log(formData.get("task-title"));
-        console.log(formData.get("task-description"));
-        console.log(formData.get("priority"));
-        console.log(formData.get("project"));
+        
+        // console.log(formData.get("task-title"));
+        // console.log(formData.get("task-description"));
+        // console.log(formData.get("priority"));
+        // console.log(formData.get("project"));
+
+        const data = saveData(
+            formData.get("task-title"),
+            formData.get("task-description"),
+            formData.get("priority"),
+            formData.get("project")
+        );
+        console.log(data);
     })
+
 })
 
 // addTaskButton.addEventListener("click", (e) => {
