@@ -122,7 +122,7 @@ i {
 }
 
 .blur {
-    filter: opacity(0.2);
+    filter: blur(5px);
 }
 
 #side-bar {
@@ -206,9 +206,7 @@ i {
     justify-content: space-between;
     align-items: center;
     height: min(30px, content);
-    position: relative;
 }
-
 .project:hover {
     background-color: var(--active-background-color);
 }
@@ -442,120 +440,29 @@ input:focus {
     border-radius: 10px;
 }
 
-#add-task-window {
-    z-index: 99999999;
-    height: fit-content;
-    width: 500px;
-    position: fixed;
+#project-name {
+    height: 30px;
+    width: 100%;
+    border: none;
+    outline: none;
 
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    align-self: center;
 
     background-color: var(--one-color);
-    /* border-radius: 20px; */
-    /* border: solid var(--two-color) 2px; */
-    box-shadow: var(--shadow);
 
-    display: flex;
-    justify-content: center;
-
-    
-}
-
-#add-task-form {
-    height: 90%;
-    width: 90%;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#add-task-form #task-title {
-    width: 100%;
-    height: 35px;
-    font-size: 18px;
-    color: var(--two-color);
-    margin-bottom: 10px;
-    font-weight: 500;
-    background-color: inherit;
-    border: none;
-}
-#add-task-form #task-title:focus {
-    outline: none;
-}
-
-#add-task-form #task-description {
-    width: 100%;
-    height: 200px;
-    color: var(--two-color);
-    margin-bottom: 10px;
-    font-weight: 500;
-    background-color: inherit;
-    border: none;
-    font: inherit;
-    font-size: 14px;
-    /* border-bottom: solid var(--two-color) 1px; */
-}
-#add-task-form #task-description:focus {
-    outline: none;
-}
-
-
-#add-task-options {
-    border-bottom: 2px solid var(--two-color);
-    margin-bottom: 10px;
-}
-
-
-#task-priority, #task-project, #task-date {
-    padding: 6px 14px;
-    height: 35px;
+    padding: 5px 10px;
     border-radius: 10px;
-    border: solid var(--one-color) 1.5px;
-    font: inherit;
-    font-size: 14px;
-    color: var(--two-color);
-    background-color: var(--one-color);
-    cursor: pointer;
+
+    font-size: 15px;
+    color: var(--three-color);
+
     transition: background-color 0.2s ease;
 }
-#task-date:focus {
-    outline: none;
+
+#project-name::placeholder {
+    color: var(--transparent-color);
 }
 
-#submit-button {
-    color: var(--two-color);
-
-    padding: 10px;
-    margin-bottom: 10px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background-color: var(--one-color);
-    border: none;
-
-    border-radius: 10px;
-    box-shadow: var(--shadow);
-
-    cursor: pointer;
-
-    /* font-size: 18px; */
-    font-weight: 500;
-
-    transition:
-        color 0.2s ease,
-        background-color 0.2s ease,
-        transform 0.15s ease,
-        box-shadow 0.2s ease;
-}
-
-#submit-button:hover {
-    color: var(--four-color);
+#project-name:focus {
     background-color: var(--active-background-color);
-
-    /* transform: translateY(-1px); */
 }
