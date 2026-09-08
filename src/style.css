@@ -41,6 +41,10 @@ body {
     flex-shrink: 0;
 }
 
+i {
+    color: var(--two-color);
+}
+
 #heading {
     color: var(--four-color);
     display: flex;
@@ -67,6 +71,22 @@ body {
 
 #burger:hover {
     transform: rotate(360deg);
+    color: var(--four-color);
+}
+
+#change-mode-button {
+    color: var(--two-color);
+    position: absolute;
+    z-index: 1000;
+    right: 0;
+    margin-right: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: transform .7s ease-in-out;
+}
+#change-mode-button:hover {
     color: var(--four-color);
 }
 
@@ -102,6 +122,10 @@ body {
     justify-content: center;
 }
 
+.blur {
+    filter: blur(5px);
+}
+
 #side-bar {
     position: fixed;
     left: 0px;
@@ -128,7 +152,39 @@ body {
     font-size: 20px;
     margin-bottom: 20px;
     color: var(--four-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+
+#project-name {
+    height: 30px;
+    width: 100%;
+    border: none;
+    outline: none;
+
+    align-self: center;
+
+    background-color: var(--one-color);
+
+    padding: 5px 10px;
+    border-radius: 10px;
+
+    font-size: 15px;
+    color: var(--three-color);
+
+    transition: background-color 0.2s ease;
+}
+
+#project-name::placeholder {
+    color: var(--transparent-color);
+}
+
+#project-name:focus {
+    background-color: var(--active-background-color);
+}
+
 #projects-list {
     display: flex;
     flex-direction: column;
@@ -139,45 +195,86 @@ body {
 
 .project {
     cursor: pointer;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     cursor: pointer;
     flex-shrink: 0;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: min(30px, content);
 }
 .project:hover {
-    color: var(--four-color);
+    background-color: var(--active-background-color);
+}
+
+.active-project {
+    background-color: var(--active-background-color);
+
 }
 
 #add-project-button {
     color: var(--two-color);
-    box-shadow: var(--shadow);
     cursor: pointer;
-    padding: 10px;
-    border-radius: 20px;
-    width: fit-content;
-    display: flex; justify-content: center; align-items: center;
-    align-self: center;
+
+    width: 28px;
+    height: 28px;
+    padding: 0;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        transform .7s ease-in-out;
 }
 #add-project-button:hover {
     color: var(--four-color);
-    background-color: var(--active-background-color);
+    transform: rotate(360deg);
 }
 
 #settings-button {
     color: var(--two-color);
+
     padding: 10px;
-    box-shadow: var(--shadow);
-    cursor: pointer;
     margin-bottom: 10px;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
+    background-color: var(--one-color);
+
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
 }
 
 #settings-button:hover {
     color: var(--four-color);
     background-color: var(--active-background-color);
+
+    transform: translateY(-1px);
 }
 
+#settings-button:active {
+    transform: translateY(0);
+}
 
 #tasks {
     /* background-color: pink; */
@@ -261,6 +358,9 @@ body {
     font-size: 12px;
     align-items: center;
 }
+.project-info, .break {
+    margin-right: 5px;
+}
 .date {
     margin-right: auto;
 }
@@ -270,4 +370,83 @@ body {
     background-color: var(--priority-low);
     margin-right: 10px;
     border-radius: 20px;
+}
+
+#add-task-button {
+    position: fixed;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+
+    z-index: 99999;
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    border: none;
+
+    background-color: var(--four-color);
+    color: var(--one-color);
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 20px rgba(168, 130, 221, 0.3);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#add-task-button:hover {
+    transform: translateX(-50%) scale(1.08);
+    box-shadow: 0 6px 25px rgba(168, 130, 221, 0.45);
+}
+
+#add-task-button:active {
+    transform: translateX(-50%) scale(0.95);
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid var(--two-color);
+}
+
+#add-project-box {
+    background-color: var(--one-color);
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    display: flex;
+    border-radius: 10px;
+}
+
+#project-name {
+    height: 30px;
+    width: 100%;
+    border: none;
+    outline: none;
+
+    align-self: center;
+
+    background-color: var(--one-color);
+
+    padding: 5px 10px;
+    border-radius: 10px;
+
+    font-size: 15px;
+    color: var(--three-color);
+
+    transition: background-color 0.2s ease;
+}
+
+#project-name::placeholder {
+    color: var(--transparent-color);
+}
+
+#project-name:focus {
+    background-color: var(--active-background-color);
 }

@@ -15,6 +15,9 @@
         <div id="burger">
             <i class="fa-solid fa-bars"></i>
         </div>
+        <div id="change-mode-button">
+            <i class="fa-regular fa-moon"></i>
+        </div>
     </div>
 
     <div id="categories">
@@ -28,13 +31,26 @@
 
         <div id="side-bar">
             <div id="projects">
-                <div id="subheading">プロジェクト:</div>
-                <div id="projects-list">
-                    <div class="project">Odin Project</div>
-                    <div class="project">Running Animation</div>
-                    <div class="project">Japanese</div>
+                <div id="subheading">プロジェクト:
+                    <!-- <div id="add-project-button">
+                        <i class="fa-solid fa-plus"></i>
+                    </div> -->
                 </div>
-                <div id="add-project-button"><i class="fa-solid fa-plus"></i></div>
+                <!-- appears when add project button is clicked -->
+                <form id="add-project-box">
+                    <input
+                        type="text"
+                        id="project-name"
+                        name="project-name"
+                        placeholder="Add New Project"
+                    >
+                </form>
+                <div id="projects-list">
+                    <div class="project active-project">Miscellaneous<i class="fa-solid fa-ellipsis"></i></div>
+                    <div class="project">Project That Takes Multiple Lines<i class="fa-solid fa-ellipsis"></i></div>
+                    <div class="project">日本語のプロジェクト<i class="fa-solid fa-ellipsis"></i></div>
+                </div>
+                
             </div>
             <div id="settings">
                 <div id="settings-button">
@@ -68,6 +84,8 @@
                 
                 <div class="row3">
                     <div class="empty-div"></div>
+                    <div class="project-info">Miscellaneous</div>
+                    <div class="break">|</div>
                     <div class="date">September 6, 2026</div>
                     <div class="priority-color"></div>
                     <div class="priority-div">Low Priority</div>
@@ -98,6 +116,8 @@
                 
                 <div class="row3">
                     <div class="empty-div"></div>
+                    <div class="project-info">Odin Project</div>
+                    <div class="break">|</div>
                     <div class="date">September 6, 2026</div>
                     <div class="priority-color"></div>
                     <div class="priority-div">Low Priority</div>
@@ -107,5 +127,12 @@
 
         </div>
     </div>
+
+    <div id="add-task-button">
+        <i class="fa-solid fa-plus"></i>
+    </div>
+
+
+    
 </body>
 </html>
