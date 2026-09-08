@@ -359,7 +359,7 @@ i {
  .description {
     height: 24px;
     overflow: hidden;
-    white-space: nowrap;
+    white-space: pre-wrap;
     text-overflow: ellipsis;
     width: 95%;
     font-size: 15px;
@@ -369,7 +369,7 @@ i {
 }
 
 .description-expanded {
-    white-space: normal;
+    white-space: pre-wrap;
     text-overflow: unset;
     line-height: 1.5;
 }
