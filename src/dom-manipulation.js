@@ -170,13 +170,27 @@ function generateTaskInDOM(latestTask) {
                 optionsIcon.classList.add("fa-solid", "fa-ellipsis");
                 optionsContainer.appendChild(optionsIcon);
 
-
-
         // need some if else for the other rows
 
-        const row2 = document.createElement("div");
-        row2.class = "row2";
-        // task.appendChild(row2);
+        // if there is a description, show it
+
+        if (latestTask.taskDescription != "") {
+
+            // add row
+            const row2 = document.createElement("div");
+            row2.setAttribute("class", "row2")
+            task.appendChild(row2);
+
+            const emptyDiv = document.createElement("div");
+            emptyDiv.setAttribute("class", "empty-div");
+            row2.appendChild(emptyDiv);
+
+            const description = document.createElement("div");
+            description.setAttribute("class", "description");
+            description.textContent = latestTask.taskDescription;
+            row2.appendChild(description);
+        }
+        
         const row3 = document.createElement("div");
         row3.class = "row3";
         // task.appendChild(row3);
