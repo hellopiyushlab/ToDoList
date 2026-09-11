@@ -22,8 +22,24 @@
     - [ ] update data in data.js
     - [ ] Change priority text to "completed task"
 - [ ] make categories tabs work
+    - [ ] tab switching logic
+    - [ ] reload the relevant tasks on screen
 - [ ] make projects work
+    - [ ] project switching logic
+    - [ ] reload the relevant tasks on screen
+- [ ] make projects and categories work together
 - [ ] make the edit and delete for tasks work
+    - [ ] load a small div with options
+    - [ ] edit function
+    - [ ] delete function
 - [ ] make the edit and delete for projects work
+    - [ ] load a small div with options
+    - [ ] edit function
+    - [ ] delete function
 - [ ] make dark mode work
 - [ ] make settings
+    - [ ] change accent color
+    - [ ] delete all tasks
+    - [ ] download json of tasks
+    - [ ] save local only vs. save on cloud
+- [ ] think about the mascot
