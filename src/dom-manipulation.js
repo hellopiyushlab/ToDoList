@@ -39,7 +39,6 @@ function loadBaseElements() {
 
 function generateAddTaskWindow(projects) {
 
-    console.log(projects);
     // select the body
     const body = document.querySelector("body");
 
@@ -239,6 +238,7 @@ function generateTaskInDOM(latestTask) {
 
         return {
             description,
+            checkboxContainer
         }
 }
 
@@ -304,9 +304,29 @@ function renderProjectInSidebar(projectFormData) {
     projectsList.appendChild(projectElement);
 }
 
+function toggleSideBar(sidebar) {
+    const isHidden = sidebar.classList.contains("side-bar-hidden");
+    if (isHidden) {
+        sidebar.classList.remove("side-bar-hidden");
+    } else {
+        sidebar.classList.add("side-bar-hidden");
+    }
+}
+
+function toggleClassState(task) {
+    const isCompleted = task.classList.contains(".completed-task");
+    if (isCompleted) {
+        task.classList.remove(".completed-task");
+    } else {
+        task.classList.add(".completed-task");
+    }
+}
+
 export {
     generateAddTaskWindow,
     generateTaskInDOM,
     expandDescription,
-    renderProjectInSidebar
+    renderProjectInSidebar,
+    toggleSideBar,
+    toggleClassState
 }

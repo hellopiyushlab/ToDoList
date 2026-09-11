@@ -1,24 +1,42 @@
 // index.js
-import { generateAddTaskWindow, generateTaskInDOM, expandDescription, renderProjectInSidebar } from "./dom-manipulation.js";
 import "./style.css";
-import { saveData, getData, getProjects, addProject } from "./data.js";
 
-// event listener for adding projects
+import { 
+    generateAddTaskWindow, 
+    generateTaskInDOM, 
+    expandDescription, 
+    renderProjectInSidebar,
+    toggleSideBar,
+    toggleClassState
+} from "./dom-manipulation.js";
 
+import { 
+    saveData, 
+    getProjects, 
+    addProject
+} from "./data.js";
+
+// event listener to show and clear the sidebar
+const burger = document.querySelector("#burger");
+burger.addEventListener("click", () => {  
+    // function for handling the sidebar
+    toggleSideBar(document.querySelector("#side-bar"));
+})
+
+// add event listener on the add project form, and then render the projects on screen
 const addProjectBox = document.querySelector("#add-project-box");
 addProjectBox.addEventListener("submit", (event) => {
     event.preventDefault();
     const projectFormData = new FormData(addProjectBox);
-    console.log(projectFormData);
     addProject(projectFormData);
     renderProjectInSidebar(projectFormData);
 })
 
-// put event listener on add-task-button
-const addTaskButton = document.querySelector("#add-task-button");
-
 // add event listener to display the window
+const addTaskButton = document.querySelector("#add-task-button");
 addTaskButton.addEventListener("click", () => {
+
+    // get all projects from data.js and then generate add task window
     generateAddTaskWindow(getProjects());
 
     // if clicked outside, remove the window
@@ -46,22 +64,26 @@ addTaskButton.addEventListener("click", () => {
             formData.get("priority"),
             formData.get("project")
         );
-        console.log(latestTask);
 
         const addTaskWindow = document.querySelector("#add-task-window");
         addTaskWindow.remove();
 
         const latestTaskElements = generateTaskInDOM(latestTask);
-        console.log(latestTaskElements);
 
         // event listener to expact the description
-        if (latestTask.taskDescription != "") {
-            latestTaskElements.description.addEventListener("click", (event)=> {
+        // if (latestTask.taskDescription != "") {
+        //     latestTaskElements.description.addEventListener("click", (event)=> {
+        //         console.log(latestTaskElements);
+        //         // ffunction deal with description lmao
+        //         expandDescription(event.target);
+        //     });
+        // }
+
+        latestTaskElements.description.addEventListener("click", (event)=> {
+                console.log(latestTaskElements);
                 // ffunction deal with description lmao
                 expandDescription(event.target);
-            });
-        }
-        
+        });
+
     })
 })
-

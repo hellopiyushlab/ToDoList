@@ -97,7 +97,6 @@ function addProject(projectFormData) {
     if (!projects.includes(project)) {
         projects.push(project);
     }
-    console.log(projects);
 }
 
 export {

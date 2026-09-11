@@ -7,14 +7,14 @@
 - [x] make proper field for each data
 - [x] make a base css to show the data
 - [x] make description work
-- [x] make expanded description work
+- [ ] make expanded description work
 - [x] make priority work
-- [ ] make projects work
+- [x] make projects work
     - [x] take input of projects
     - [x] render projects
     - [x] show projects inside task
     - [x] fix alignment of each project in sideba
-- [ ] make side bar appear and disappear
+- [x] make side bar appear and disappear
 - [ ] make switching task state work
 - [ ] make categories tabs work
 - [ ] make projects work
