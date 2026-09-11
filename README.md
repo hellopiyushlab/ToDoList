@@ -1,3 +1,5 @@
+### Current Goals
+
 - [x] make the prompt logic with modules
 - [x] make the initial dom
 - [x] put eventlisteners on the base elements
@@ -42,4 +44,9 @@
     - [ ] delete all tasks
     - [ ] download json of tasks
     - [ ] save local only vs. save on cloud
-- [ ] think about the mascot
+
+### Future Additions
+- [ ] Make with REACT
+- [ ] Add a mascot
+- [ ] Deploy properly
+- [ ] a WhatsApp bot to send you notifications
