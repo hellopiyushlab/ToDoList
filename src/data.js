@@ -56,6 +56,7 @@ let projects = [];
 
 function saveData(title, description, priority, project) {
     let latestTask = createTaskObject(title, description, priority, project);
+    latestTask.completed = false;
     arrayOfTasks.push(latestTask);
     return latestTask;
 }

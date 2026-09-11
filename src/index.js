@@ -7,7 +7,8 @@ import {
     expandDescription, 
     renderProjectInSidebar,
     toggleSideBar,
-    toggleClassState
+    blurTask,
+    toggleTaskIcon
 } from "./dom-manipulation.js";
 
 import { 
@@ -64,26 +65,30 @@ addTaskButton.addEventListener("click", () => {
             formData.get("priority"),
             formData.get("project")
         );
+        console.log("latest task: ");
+        console.log(latestTask);
 
         const addTaskWindow = document.querySelector("#add-task-window");
         addTaskWindow.remove();
 
         const latestTaskElements = generateTaskInDOM(latestTask);
+        console.log("latest task html elements: ");
+        console.log(latestTaskElements);
 
-        // event listener to expact the description
-        // if (latestTask.taskDescription != "") {
-        //     latestTaskElements.description.addEventListener("click", (event)=> {
-        //         console.log(latestTaskElements);
-        //         // ffunction deal with description lmao
-        //         expandDescription(event.target);
-        //     });
-        // }
-
-        latestTaskElements.description.addEventListener("click", (event)=> {
+        // check if const latestTaskElements = generateTaskInDOM(latestTask);'s returned description has any content
+        if (latestTaskElements.description) {
+            // yes it has content, put event listener on it
+            // we cannot put event listener on something undefined or null
+            latestTaskElements.description.addEventListener("click", (event)=> {
                 console.log(latestTaskElements);
-                // ffunction deal with description lmao
                 expandDescription(event.target);
-        });
+            });
+        }
 
+        // task state switch logic
+        latestTaskElements.checkboxContainer.addEventListener("click", (event) => {
+            blurTask(event.target.closest(".task"));
+            toggleTaskIcon(event.currentTarget);
+        })
     })
 })

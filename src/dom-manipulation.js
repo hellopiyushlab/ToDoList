@@ -153,8 +153,12 @@ function generateTaskInDOM(latestTask) {
             row1.appendChild(checkboxContainer);
 
                 const uncheckedIcon = document.createElement("i");
-                uncheckedIcon.classList.add("fa-regular", "fa-circle");
+                uncheckedIcon.classList.add("fa-regular", "fa-circle", "unchecked-icon");
                 checkboxContainer.appendChild(uncheckedIcon);
+
+                const checkedIcon = document.createElement("i");
+                checkedIcon.classList.add("fa-regular", "fa-circle-check", "checked-icon");
+                checkboxContainer.appendChild(checkedIcon);
 
             const title = document.createElement("div");
             title.setAttribute("class", "title");
@@ -184,6 +188,11 @@ function generateTaskInDOM(latestTask) {
             const emptyDiv = document.createElement("div");
             emptyDiv.setAttribute("class", "empty-div");
             row2.appendChild(emptyDiv);
+
+                const arrowIcon = document.createElement("i");
+                arrowIcon.classList.add("fa-solid");
+                arrowIcon.classList.add("fa-angle-right");
+                emptyDiv.appendChild(arrowIcon);
 
             description = document.createElement("div");
             description.setAttribute("class", "description");
@@ -313,13 +322,17 @@ function toggleSideBar(sidebar) {
     }
 }
 
-function toggleClassState(task) {
-    const isCompleted = task.classList.contains(".completed-task");
+function blurTask(task) {
+    const isCompleted = task.classList.contains("completed-task");
     if (isCompleted) {
-        task.classList.remove(".completed-task");
+        task.classList.remove("completed-task");
     } else {
-        task.classList.add(".completed-task");
+        task.classList.add("completed-task");
     }
+}
+
+function toggleTaskIcon(container) {
+    container.classList.toggle("checked");
 }
 
 export {
@@ -328,5 +341,6 @@ export {
     expandDescription,
     renderProjectInSidebar,
     toggleSideBar,
-    toggleClassState
+    blurTask,
+    toggleTaskIcon
 }

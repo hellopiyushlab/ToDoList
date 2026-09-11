@@ -326,7 +326,7 @@ i {
 }
 
 .completed-task {
-    filter: blur(8px);
+    filter: opacity(50%);
 }
 
 .row1 {
@@ -340,6 +340,9 @@ i {
     width: 6%;
     cursor: pointer;
 }
+.checked-icon { display: none; }
+.checkbox-container.checked .unchecked-icon { display: none; }
+.checkbox-container.checked .checked-icon { display: inline; }
 .title {
     font-size: 16px;
     margin-right: auto;
@@ -356,8 +359,14 @@ i {
     margin-top: 4px;
 }
 .empty-div { 
+    box-sizing: border-box;
     width: 6%;
+    display: flex;
+    cursor: pointer;
+    padding-left: 5px;
+    align-items: center;
 }
+
 /* .description {
     font-size: 15px;
     width: 95%;

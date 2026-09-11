@@ -7,7 +7,9 @@
 - [x] make proper field for each data
 - [x] make a base css to show the data
 - [x] make description work
-- [ ] make expanded description work
+- [x] make expanded description work
+    - [ ] angle down on click
+    - [ ] put same event listener on empty div as well
 - [x] make priority work
 - [x] make projects work
     - [x] take input of projects
@@ -16,6 +18,9 @@
     - [x] fix alignment of each project in sideba
 - [x] make side bar appear and disappear
 - [ ] make switching task state work
+    - [x] visual change
+    - [ ] update data in data.js
+    - [ ] Change priority text to "completed task"
 - [ ] make categories tabs work
 - [ ] make projects work
 - [ ] make the edit and delete for tasks work
