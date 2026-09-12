@@ -100,9 +100,23 @@ function addProject(projectFormData) {
     }
 }
 
+function changeTaskStateInArray(uuid) {
+    if (arrayOfTasks.find(task => task.id === uuid).completed === true) {
+        arrayOfTasks.find(task => task.id === uuid).completed = false;
+    } else if (arrayOfTasks.find(task => task.id === uuid).completed === false) {
+        arrayOfTasks.find(task => task.id === uuid).completed = true;
+    }
+}
+
+function getTaskStatus(uuid) {
+    return arrayOfTasks.find(task => task.id === uuid).completed;
+}
+
 export {
     saveData,
     getData,
     getProjects,
-    addProject
+    addProject,
+    changeTaskStateInArray,
+    getTaskStatus
 }

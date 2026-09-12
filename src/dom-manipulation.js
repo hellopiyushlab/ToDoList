@@ -142,6 +142,7 @@ function generateTaskInDOM(latestTask) {
 
     const task = document.createElement("div");
     task.setAttribute("class", "task");
+    task.setAttribute("data-id", latestTask.id);
     tasks.appendChild(task);
 
         const row1 = document.createElement("div");
@@ -208,6 +209,7 @@ function generateTaskInDOM(latestTask) {
         }
 
         let priorityColor;
+        let priority;
         if (
             latestTask.taskPriority != "none" || latestTask.taskProject != "Miscellaneous"
         ) {
@@ -238,8 +240,9 @@ function generateTaskInDOM(latestTask) {
             priorityColor.setAttribute("class", "priority-color");
             row3.appendChild(priorityColor);
 
-            const priority = document.createElement("div");
+            priority = document.createElement("div");
             priority.textContent = latestTask.taskPriority.charAt(0).toUpperCase() + latestTask.taskPriority.slice(1) + " Priority";
+            priority.dataset.originalText = priority.textContent;
             priority.setAttribute("class", "priority-div");
             row3.appendChild(priority);
         } 
@@ -255,7 +258,8 @@ function generateTaskInDOM(latestTask) {
         return {
             description,
             checkboxContainer,
-            arrowDiv
+            arrowDiv,
+            priority
         }
 }
 
@@ -351,6 +355,14 @@ function toggleArrowIcon(element) {
     downArrow.classList.toggle("arrow-icon-hidden");
 } 
 
+function togglePriorityInDOM(priority, element, status) {
+    if (status === true) {
+        priority.textContent = "Task Done!";
+    } else if (status === false) {
+        priority.textContent = priority.dataset.originalText;
+    }
+}
+
 export {
     generateAddTaskWindow,
     generateTaskInDOM,
@@ -359,5 +371,6 @@ export {
     toggleSideBar,
     blurTask,
     toggleTaskIcon,
-    toggleArrowIcon
+    toggleArrowIcon,
+    togglePriorityInDOM
 }

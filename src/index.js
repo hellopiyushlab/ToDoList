@@ -9,13 +9,16 @@ import {
     toggleSideBar,
     blurTask,
     toggleTaskIcon,
-    toggleArrowIcon
+    toggleArrowIcon,
+    togglePriorityInDOM
 } from "./dom-manipulation.js";
 
 import { 
     saveData, 
     getProjects, 
-    addProject
+    addProject,
+    changeTaskStateInArray,
+    getTaskStatus
 } from "./data.js";
 
 // event listener to show and clear the sidebar
@@ -90,11 +93,23 @@ addTaskButton.addEventListener("click", () => {
                 toggleArrowIcon(latestTaskElements.arrowDiv);
             })
         }
-
         // task state switch logic
         latestTaskElements.checkboxContainer.addEventListener("click", (event) => {
+
+            // visual task change
             blurTask(event.target.closest(".task"));
             toggleTaskIcon(event.currentTarget);
+
+            // update data
+            const taskElement = event.target.closest(".task");
+            if (!taskElement) return;
+            const taskId = taskElement.dataset.id;
+            changeTaskStateInArray(taskId);
+
+            // update priority in data
+            const priorityElement = taskElement.querySelector(".priority-div");
+            togglePriorityInDOM(latestTaskElements.priority, priorityElement, getTaskStatus(taskId));
+
         })
     })
 })

@@ -19,10 +19,10 @@
     - [x] show projects inside task
     - [x] fix alignment of each project in sideba
 - [x] make side bar appear and disappear
-- [ ] make switching task state work
+- [x] make switching task state work
     - [x] visual change
-    - [ ] update data in data.js
-    - [ ] Change priority text to "completed task"
+    - [x] update data in data.js
+    - [x] Change priority text to "completed task"
 - [ ] make categories tabs work
     - [ ] tab switching logic
     - [ ] reload the relevant tasks on screen
