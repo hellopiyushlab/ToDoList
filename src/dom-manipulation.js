@@ -177,22 +177,29 @@ function generateTaskInDOM(latestTask) {
 
         // if there is a description, show it
         let description;
-
+        let row2;
+        let arrowDiv;
         if (latestTask.taskDescription != "") {
 
             // add row
-            const row2 = document.createElement("div");
+            row2 = document.createElement("div");
             row2.setAttribute("class", "row2")
             task.appendChild(row2);
 
-            const emptyDiv = document.createElement("div");
-            emptyDiv.setAttribute("class", "empty-div");
-            row2.appendChild(emptyDiv);
+            arrowDiv = document.createElement("div");
+            arrowDiv.setAttribute("class", "empty-div");
+            arrowDiv.classList.add("desc-empty-div");
+            row2.appendChild(arrowDiv);
 
-                const arrowIcon = document.createElement("i");
-                arrowIcon.classList.add("fa-solid");
-                arrowIcon.classList.add("fa-angle-right");
-                emptyDiv.appendChild(arrowIcon);
+                const arrowIconRight = document.createElement("i");
+                arrowIconRight.classList.add("fa-solid");
+                arrowIconRight.classList.add("fa-angle-right", "arrow-icon-right", "arrow-icon");
+                arrowDiv.appendChild(arrowIconRight);
+
+                const arrowIconDown = document.createElement("i");
+                arrowIconDown.classList.add("fa-solid");
+                arrowIconDown.classList.add("fa-angle-down", "arrow-icon-down", "arrow-icon", "arrow-icon-hidden");
+                arrowDiv.appendChild(arrowIconDown);
 
             description = document.createElement("div");
             description.setAttribute("class", "description");
@@ -247,7 +254,8 @@ function generateTaskInDOM(latestTask) {
 
         return {
             description,
-            checkboxContainer
+            checkboxContainer,
+            arrowDiv
         }
 }
 
@@ -335,6 +343,14 @@ function toggleTaskIcon(container) {
     container.classList.toggle("checked");
 }
 
+function toggleArrowIcon(element) {
+    const rightArrow = element.querySelector(".arrow-icon-right");
+    const downArrow = element.querySelector(".arrow-icon-down");
+
+    rightArrow.classList.toggle("arrow-icon-hidden");
+    downArrow.classList.toggle("arrow-icon-hidden");
+} 
+
 export {
     generateAddTaskWindow,
     generateTaskInDOM,
@@ -342,5 +358,6 @@ export {
     renderProjectInSidebar,
     toggleSideBar,
     blurTask,
-    toggleTaskIcon
+    toggleTaskIcon,
+    toggleArrowIcon
 }

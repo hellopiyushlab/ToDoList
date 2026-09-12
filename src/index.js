@@ -8,7 +8,8 @@ import {
     renderProjectInSidebar,
     toggleSideBar,
     blurTask,
-    toggleTaskIcon
+    toggleTaskIcon,
+    toggleArrowIcon
 } from "./dom-manipulation.js";
 
 import { 
@@ -83,6 +84,11 @@ addTaskButton.addEventListener("click", () => {
                 console.log(latestTaskElements);
                 expandDescription(event.target);
             });
+            // putting the event listener on the arrow icon as well
+            latestTaskElements.arrowDiv.addEventListener("click", () => {
+                expandDescription(latestTaskElements.description);
+                toggleArrowIcon(latestTaskElements.arrowDiv);
+            })
         }
 
         // task state switch logic

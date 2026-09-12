@@ -364,7 +364,13 @@ i {
     display: flex;
     cursor: pointer;
     padding-left: 5px;
-    align-items: center;
+    padding-top: 4px;
+    align-items: flex-start;
+}
+
+
+.empty-div .arrow-icon-hidden {
+    display: none;
 }
 
 /* .description {

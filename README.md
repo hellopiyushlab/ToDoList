@@ -10,8 +10,8 @@
 - [x] make a base css to show the data
 - [x] make description work
 - [x] make expanded description work
-    - [ ] angle down on click
-    - [ ] put same event listener on empty div as well
+    - [x] angle down on click
+    - [x] put same event listener on empty div as well
 - [x] make priority work
 - [x] make projects work
     - [x] take input of projects
@@ -46,6 +46,7 @@
     - [ ] save local only vs. save on cloud
 
 ### Future Additions
+- [ ] Check SOLID Principles
 - [ ] Make with REACT
 - [ ] Add a mascot
 - [ ] Deploy properly
