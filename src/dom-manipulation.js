@@ -363,6 +363,46 @@ function togglePriorityInDOM(priority, element, status) {
     }
 }
 
+
+function showAllTasks(allTasksArray) {
+    document.querySelector("#tasks").replaceChildren();
+    for (let taskObject of allTasksArray) {
+        console.log("loop working");
+        generateTaskInDOM(taskObject);
+        // put the primary event listeners on
+            // checkbox container
+            // description
+            // task if there was any
+        if (taskObject.completed === true) {
+            // blur the task
+            // toggle the task icon
+            // make sure the task state is unchanged (should remain same anyways)
+            // if there was a priority, toggle Priority as well
+        }
+    }
+}
+function showActiveTasks(allTasksArray) {
+    document.querySelector("#tasks").replaceChildren();
+    for (let taskObject of allTasksArray) {
+        if (taskObject.completed === false) {
+            generateTaskInDOM(taskObject);
+        } else {
+            // do nothing
+        }
+    }
+}
+function showCompletedTasks(allTasksArray) {
+    document.querySelector("#tasks").replaceChildren();
+    for (let taskObject of allTasksArray) {
+        if (taskObject.completed === true) {
+            generateTaskInDOM(taskObject);
+        } else {
+            // do nothing
+        }
+    }
+}
+
+
 export {
     generateAddTaskWindow,
     generateTaskInDOM,
@@ -372,5 +412,8 @@ export {
     blurTask,
     toggleTaskIcon,
     toggleArrowIcon,
-    togglePriorityInDOM
+    togglePriorityInDOM,
+    showAllTasks,
+    showActiveTasks,
+    showCompletedTasks
 }

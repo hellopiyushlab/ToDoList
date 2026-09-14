@@ -10,7 +10,10 @@ import {
     blurTask,
     toggleTaskIcon,
     toggleArrowIcon,
-    togglePriorityInDOM
+    togglePriorityInDOM,
+    showAllTasks,
+    showActiveTasks,
+    showCompletedTasks
 } from "./dom-manipulation.js";
 
 import { 
@@ -18,8 +21,13 @@ import {
     getProjects, 
     addProject,
     changeTaskStateInArray,
-    getTaskStatus
+    getTaskStatus,
+    getData
 } from "./data.js";
+
+import {
+    taskEL,
+} from "./events.js"
 
 // event listener to show and clear the sidebar
 const burger = document.querySelector("#burger");
@@ -63,53 +71,72 @@ addTaskButton.addEventListener("click", () => {
         const formData = new FormData(addTaskForm);
 
         // save the data and then get the latest task
+        // latestTask is an object
         const latestTask = saveData(
             formData.get("task-title"),
             formData.get("task-description"),
             formData.get("priority"),
             formData.get("project")
         );
-        console.log("latest task: ");
-        console.log(latestTask);
 
-        const addTaskWindow = document.querySelector("#add-task-window");
-        addTaskWindow.remove();
+        // after the form is submitted, no need for the add task window
+        document.querySelector("#add-task-window").remove();
 
+        // latestTaskElements is also an object, but with the Dom Elements
         const latestTaskElements = generateTaskInDOM(latestTask);
-        console.log("latest task html elements: ");
-        console.log(latestTaskElements);
 
-        // check if const latestTaskElements = generateTaskInDOM(latestTask);'s returned description has any content
-        if (latestTaskElements.description) {
-            // yes it has content, put event listener on it
-            // we cannot put event listener on something undefined or null
-            latestTaskElements.description.addEventListener("click", (event)=> {
-                console.log(latestTaskElements);
-                expandDescription(event.target);
-            });
-            // putting the event listener on the arrow icon as well
-            latestTaskElements.arrowDiv.addEventListener("click", () => {
-                expandDescription(latestTaskElements.description);
-                toggleArrowIcon(latestTaskElements.arrowDiv);
-            })
-        }
+        taskEL(latestTask, latestTaskElements);
+
+        // // check if const latestTaskElements' description has any content
+        // if (latestTaskElements.description) {
+        //     // yes it has content, put event listener on it
+        //     // we cannot put event listener on something undefined or null
+        //     latestTaskElements.description.addEventListener("click", (event)=> {
+        //         console.log(latestTaskElements);
+        //         expandDescription(event.target);
+        //     });
+        //     // putting the event listener on the arrow icon as well
+        //     latestTaskElements.arrowDiv.addEventListener("click", () => {
+        //         expandDescription(latestTaskElements.description);
+        //         toggleArrowIcon(latestTaskElements.arrowDiv);
+        //     })
+        // }
         // task state switch logic
-        latestTaskElements.checkboxContainer.addEventListener("click", (event) => {
+        // latestTaskElements.checkboxContainer.addEventListener("click", (event) => {
 
-            // visual task change
-            blurTask(event.target.closest(".task"));
-            toggleTaskIcon(event.currentTarget);
+        //     // visual task change
+        //     blurTask(event.target.closest(".task"));
+        //     toggleTaskIcon(event.currentTarget);
 
-            // update data
-            const taskElement = event.target.closest(".task");
-            if (!taskElement) return;
-            const taskId = taskElement.dataset.id;
-            changeTaskStateInArray(taskId);
+        //     // update data
+        //     const taskElement = event.target.closest(".task");
+        //     if (!taskElement) return;
+        //     const taskId = taskElement.dataset.id;
+        //     changeTaskStateInArray(taskId);
 
-            // update priority in data
-            const priorityElement = taskElement.querySelector(".priority-div");
-            togglePriorityInDOM(latestTaskElements.priority, priorityElement, getTaskStatus(taskId));
-
-        })
+        //     // update priority in data
+        //     // i have to make sure that this is happening, only if there was a priority
+        //     if (latestTaskElements.priority != undefined) {
+        //         const priorityElement = taskElement.querySelector(".priority-div");
+        //         togglePriorityInDOM(latestTaskElements.priority, priorityElement, getTaskStatus(taskId));
+        //     }
+        // })
     })
+})
+
+// event listeners on the categories
+const showAll = document.querySelector(".all-tasks-category");
+const showActive = document.querySelector(".active-category");
+const showCompleted = document.querySelector(".completed-category");
+
+showAll.addEventListener("click", () => {
+    showAllTasks(getData());
+})
+
+showActive.addEventListener("click", () => {
+    showActiveTasks(getData());
+})
+
+showCompleted.addEventListener("click", () => {
+    showCompletedTasks(getData());
 })

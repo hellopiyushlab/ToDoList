@@ -23,6 +23,7 @@
     - [x] visual change
     - [x] update data in data.js
     - [x] Change priority text to "completed task"
+- [ ] move task event listeners to events.js as functions
 - [ ] make categories tabs work
     - [ ] tab switching logic
     - [ ] reload the relevant tasks on screen

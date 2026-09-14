@@ -106,7 +106,7 @@ i {
     background-color: var(--active-background-color);
 }
 
-#highlighted-category {
+.highlighted-category {
     color: var(--four-color);
     background-color: var(--active-background-color);
 }
