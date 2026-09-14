@@ -25,9 +25,12 @@
     - [x] update data in data.js
     - [x] Change priority text to "completed task"
 - [x] move task event listeners to events.js as functions
-- [ ] make categories tabs work
-    - [ ] tab switching logic
-    - [ ] reload the relevant tasks on screen
+- [x] make categories tabs work
+    - [x] tab switching logic
+    - [x] reload the relevant tasks on screen
+    - [x] event listeners on new tasks
+    - [x] priority change event listener
+    - [x] categories css change logic
 - [ ] make projects work
     - [ ] project switching logic
     - [ ] reload the relevant tasks on screen

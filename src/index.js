@@ -13,7 +13,8 @@ import {
     togglePriorityInDOM,
     showAllTasks,
     showActiveTasks,
-    showCompletedTasks
+    showCompletedTasks,
+    toggleCategoryBG
 } from "./dom-manipulation.js";
 
 import { 
@@ -53,16 +54,6 @@ addTaskButton.addEventListener("click", () => {
     // get all projects from data.js and then generate add task window
     generateAddTaskWindow(getProjects());
 
-    // if clicked outside, remove the window
-    const mainContent = document.querySelector("#main-content");
-    mainContent.addEventListener("click", () => {
-        const addTaskWindow = document.querySelector("#add-task-window");
-
-        if (addTaskWindow) {
-            addTaskWindow.remove();
-        }
-    })
-
     // add the submit event listener on the form itself
     const addTaskForm = document.querySelector("#add-task-form");
     addTaskForm.addEventListener("submit", (event) => {
@@ -86,7 +77,7 @@ addTaskButton.addEventListener("click", () => {
         // latestTaskElements is also an object, but with the Dom Elements
         const latestTaskElements = generateTaskInDOM(latestTask);
 
-        taskEL(latestTask, latestTaskElements);
+        taskEL(latestTask);
 
         // // check if const latestTaskElements' description has any content
         // if (latestTaskElements.description) {
@@ -125,22 +116,36 @@ addTaskButton.addEventListener("click", () => {
     })
 })
 
+// if clicked outside, remove the window
+const mainContent = document.querySelector("#main-content");
+mainContent.addEventListener("click", () => {
+    const addTaskWindow = document.querySelector("#add-task-window");
+    if (addTaskWindow) {
+        addTaskWindow.remove();
+    }
+})
+
 // event listeners on the categories
 const showAll = document.querySelector(".all-tasks-category");
 const showActive = document.querySelector(".active-category");
 const showCompleted = document.querySelector(".completed-category");
 
-showAll.addEventListener("click", () => {
+showAll.addEventListener("click", (event) => {
     showAllTasks(getData());
-    allTaskEL(getData());
-})
-
-showActive.addEventListener("click", () => {
-    showActiveTasks(getData());
-    allTaskEL(getData());
-})
-
-showCompleted.addEventListener("click", () => {
-    showCompletedTasks(getData());
     allTasksEL(getData());
+    toggleCategoryBG(event.currentTarget);
+})
+
+showActive.addEventListener("click", (event) => {
+    showActiveTasks(getData());
+    const activeTasksData = getData().filter(task => task.completed === false);
+    allTasksEL(activeTasksData);
+    toggleCategoryBG(event.currentTarget);
+})
+
+showCompleted.addEventListener("click", (event) => {
+    showCompletedTasks(getData());
+    const completedTasksData  = getData().filter(task => task.completed === true);
+    allTasksEL(completedTasksData);
+    toggleCategoryBG(event.currentTarget);
 })

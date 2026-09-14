@@ -106,6 +106,7 @@ function changeTaskStateInArray(uuid) {
     } else if (arrayOfTasks.find(task => task.id === uuid).completed === false) {
         arrayOfTasks.find(task => task.id === uuid).completed = true;
     }
+    console.log(arrayOfTasks);
 }
 
 function getTaskStatus(uuid) {
