@@ -10,7 +10,9 @@ import {
     togglePriorityInDOM,
     showAllTasks,
     showActiveTasks,
-    showCompletedTasks
+    showCompletedTasks,
+    toggleProjectInSideBar,
+    renderProjectOnlyTasks
 } from "./dom-manipulation.js";
 
 import { 
@@ -19,7 +21,9 @@ import {
     addProject,
     changeTaskStateInArray,
     getTaskStatus,
-    getData
+    getData,
+    updateCurrentProject,
+    getCurrentProject
 } from "./data.js";
 
 
@@ -112,7 +116,28 @@ function allTasksEL(allTasksData) {
     }
 }
 
+function projectEL(projects) {
+    projects.forEach(project => {
+        const projectElement = document.querySelector(
+            `.project[data-id="${project}"]`
+        );
+        projectElement.addEventListener("click", () => {
+            console.log(`Clicked project: ${project}`);
+            
+            
+            // update data for current project
+            updateCurrentProject(project);
+            // visual change
+            toggleProjectInSideBar(project, projects);
+            // change rendering of tasks
+            console.log(`current project: ${getCurrentProject()}`);
+            renderProjectOnlyTasks(project);
+        });
+    });
+}
+
 export {
     taskEL,
-    allTasksEL
+    allTasksEL,
+    projectEL
 }

@@ -28,7 +28,8 @@ import {
 
 import {
     taskEL,
-    allTasksEL
+    allTasksEL,
+    projectEL
 } from "./events.js"
 
 // event listener to show and clear the sidebar
@@ -44,7 +45,9 @@ addProjectBox.addEventListener("submit", (event) => {
     event.preventDefault();
     const projectFormData = new FormData(addProjectBox);
     addProject(projectFormData);
-    renderProjectInSidebar(projectFormData);
+    renderProjectInSidebar(getProjects());
+    console.log(getProjects());
+    projectEL(getProjects());
 })
 
 // add event listener to display the window

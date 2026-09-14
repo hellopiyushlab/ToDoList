@@ -306,23 +306,22 @@ function expandDescription(el) {
     }
 }
 
-function renderProjectInSidebar(projectFormData) {
+function renderProjectInSidebar(projects) {
+    // I should do this with data only as well
 
     const projectsList = document.querySelector("#projects-list");
-
-    const project = projectFormData.get("project-name");
-
-    const projectElement = document.createElement("div");
-    projectElement.setAttribute("class", "project");
-
-    const projectName = document.createElement("span");
-    projectName.textContent = project;
-
-    const dotIcon = document.createElement("i");
-    dotIcon.classList.add("fa-solid", "fa-ellipsis");
-
-    projectElement.append(projectName, dotIcon);
-    projectsList.appendChild(projectElement);
+    projectsList.replaceChildren();
+    for (let project of projects) {
+        const projectElement = document.createElement("div");
+        projectElement.setAttribute("class", "project");
+        projectElement.dataset.id = project;
+        const projectName = document.createElement("span");
+        projectName.textContent = project;
+        const dotIcon = document.createElement("i");
+        dotIcon.classList.add("fa-solid", "fa-ellipsis");
+        projectElement.append(projectName, dotIcon);
+        projectsList.appendChild(projectElement);
+    }
 }
 
 function toggleSideBar(sidebar) {
@@ -396,6 +395,26 @@ function toggleCategoryBG(currentTab) {
     currentTab.classList.add("highlighted-category");
 }
 
+function toggleProjectInSideBar(currentProject, projects) {
+    projects.forEach(project => {
+        if (document.querySelector(`.project[data-id="${project}"]`).classList.contains("active-project")) {
+            document.querySelector(`.project[data-id="${project}"]`).classList.remove("active-project");
+        }
+    });
+    document.querySelector(`.project[data-id="${currentProject}"]`).classList.add("active-project");
+}
+
+function renderProjectOnlyTasks(currentProject) {
+    const tasks = document.querySelectorAll(".task");
+    tasks.forEach(task => {
+        if (task.querySelector(".project-info").textContent !== currentProject) {
+            task.classList.add("task-hidden");
+        } else if (task.querySelector(".project-info").textContent === currentProject) {
+            task.classList.remove("task-hidden");
+        }
+    })
+}
+
 export {
     generateAddTaskWindow,
     generateTaskInDOM,
@@ -409,5 +428,7 @@ export {
     showAllTasks,
     showActiveTasks,
     showCompletedTasks,
-    toggleCategoryBG
+    toggleCategoryBG,
+    toggleProjectInSideBar,
+    renderProjectOnlyTasks
 }

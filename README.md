@@ -31,15 +31,17 @@
     - [x] event listeners on new tasks
     - [x] priority change event listener
     - [x] categories css change logic
-- [ ] make projects work
-    - [ ] project switching logic
-    - [ ] reload the relevant tasks on screen
+- [x] make projects work
+    - [x] project switching logic
+    - [x] reload the relevant tasks on screen
+- [ ] add a all projects in projects that renders on page load
 - [ ] make projects and categories work together
 - [ ] make the edit and delete for tasks work
     - [ ] load a small div with options
     - [ ] edit function
     - [ ] delete function
 - [ ] make the edit and delete for projects work
+    - [ ] use event.stopPropagation(); to avoid evennt bubbling
     - [ ] load a small div with options
     - [ ] edit function
     - [ ] delete function

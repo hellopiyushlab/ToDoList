@@ -53,6 +53,7 @@ let arrayOfTasks = [
 ];
 
 let projects = [];
+let currentProject;
 
 function saveData(title, description, priority, project) {
     let latestTask = createTaskObject(title, description, priority, project);
@@ -113,11 +114,21 @@ function getTaskStatus(uuid) {
     return arrayOfTasks.find(task => task.id === uuid).completed;
 }
 
+function updateCurrentProject(project) {
+    currentProject = project;
+}
+
+function getCurrentProject() {
+    return currentProject;
+}
+
 export {
     saveData,
     getData,
     getProjects,
     addProject,
     changeTaskStateInArray,
-    getTaskStatus
+    getTaskStatus,
+    updateCurrentProject,
+    getCurrentProject
 }
