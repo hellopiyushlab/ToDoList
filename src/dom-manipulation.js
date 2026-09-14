@@ -355,7 +355,7 @@ function toggleArrowIcon(element) {
     downArrow.classList.toggle("arrow-icon-hidden");
 } 
 
-function togglePriorityInDOM(priority, element, status) {
+function togglePriorityInDOM(priority, status) {
     if (status === true) {
         priority.textContent = "Task Done!";
     } else if (status === false) {
@@ -369,6 +369,7 @@ function showAllTasks(allTasksArray) {
     for (let taskObject of allTasksArray) {
         console.log("loop working");
         generateTaskInDOM(taskObject);
+
         // put the primary event listeners on
             // checkbox container
             // description

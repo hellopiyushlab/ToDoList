@@ -27,6 +27,7 @@ import {
 
 import {
     taskEL,
+    allTasksEL
 } from "./events.js"
 
 // event listener to show and clear the sidebar
@@ -131,12 +132,15 @@ const showCompleted = document.querySelector(".completed-category");
 
 showAll.addEventListener("click", () => {
     showAllTasks(getData());
+    allTaskEL(getData());
 })
 
 showActive.addEventListener("click", () => {
     showActiveTasks(getData());
+    allTaskEL(getData());
 })
 
 showCompleted.addEventListener("click", () => {
     showCompletedTasks(getData());
+    allTasksEL(getData());
 })

@@ -9,6 +9,7 @@
 - [x] make proper field for each data
 - [x] make a base css to show the data
 - [x] make description work
+    - [ ] do not render description if it is just white spaces
 - [x] make expanded description work
     - [x] angle down on click
     - [x] put same event listener on empty div as well
@@ -23,7 +24,7 @@
     - [x] visual change
     - [x] update data in data.js
     - [x] Change priority text to "completed task"
-- [ ] move task event listeners to events.js as functions
+- [x] move task event listeners to events.js as functions
 - [ ] make categories tabs work
     - [ ] tab switching logic
     - [ ] reload the relevant tasks on screen
