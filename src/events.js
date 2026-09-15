@@ -131,6 +131,7 @@ function projectEL(projects) {
             toggleProjectInSideBar(project, projects);
             // change rendering of tasks
             console.log(`current project: ${getCurrentProject()}`);
+            
             renderProjectOnlyTasks(project);
         });
     });

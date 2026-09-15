@@ -89,11 +89,11 @@ function generateAddTaskWindow(projects) {
     taskProject.id = "task-project";
     taskProject.name = "project";
 
-    const noProject = document.createElement("option");
-    noProject.value = "Miscellaneous";
-    noProject.selected = true;
-    noProject.textContent = "No Project";
-    taskProject.appendChild(noProject);
+    // const noProjectOption = document.createElement("option");
+    // noProjectOption.value = "Miscellaneous";
+    // noProjectOption.selected = true;
+    // noProjectOption.textContent = "Miscellaneous";
+    // taskProject.appendChild(noProjectOption);
 
     for (const project of projects) {
         const option = document.createElement("option");
@@ -143,6 +143,7 @@ function generateTaskInDOM(latestTask) {
     const task = document.createElement("div");
     task.setAttribute("class", "task");
     task.setAttribute("data-id", latestTask.id);
+    task.setAttribute("data-project", latestTask.taskProject);
     tasks.appendChild(task);
 
         const row1 = document.createElement("div");
@@ -310,7 +311,10 @@ function renderProjectInSidebar(projects) {
     // I should do this with data only as well
 
     const projectsList = document.querySelector("#projects-list");
+    const allProjectsButton = document.querySelector("#all-projects");
     projectsList.replaceChildren();
+    projectsList.appendChild(allProjectsButton);
+
     for (let project of projects) {
         const projectElement = document.createElement("div");
         projectElement.setAttribute("class", "project");
@@ -322,6 +326,43 @@ function renderProjectInSidebar(projects) {
         projectElement.append(projectName, dotIcon);
         projectsList.appendChild(projectElement);
     }
+}
+
+function renderMiscProjectsButton() {
+    const projectElement = document.createElement("div");
+    projectElement.setAttribute("id", "misc-projects");
+    projectElement.setAttribute("class", "project");
+    projectElement.dataset.id = "Miscellaneous";
+
+    const projectName = document.createElement("span");
+    projectName.textContent = "Miscellaneous";
+    const dotIcon = document.createElement("i");
+    dotIcon.classList.add("fa-solid", "fa-ellipsis");
+    projectElement.append(projectName, dotIcon);
+
+    const projectsList = document.querySelector("#projects-list");
+    projectsList.appendChild(projectElement);
+
+    return projectElement;
+}
+
+function renderAllProjectsButton() {
+    const projectElement = document.createElement("div");
+    projectElement.setAttribute("id", "all-projects");
+    projectElement.setAttribute("class", "project");
+    projectElement.dataset.id = "All Projects";
+
+    const projectName = document.createElement("span");
+    projectName.textContent = "All Projects";
+    const dotIcon = document.createElement("i");
+    dotIcon.classList.add("fa-solid", "fa-ellipsis");
+    projectElement.append(projectName, dotIcon);
+    // projectElement.classList.add("active-project");
+
+    const projectsList = document.querySelector("#projects-list");
+    projectsList.appendChild(projectElement);
+
+    return projectElement;
 }
 
 function toggleSideBar(sidebar) {
@@ -396,21 +437,76 @@ function toggleCategoryBG(currentTab) {
 }
 
 function toggleProjectInSideBar(currentProject, projects) {
-    projects.forEach(project => {
-        if (document.querySelector(`.project[data-id="${project}"]`).classList.contains("active-project")) {
-            document.querySelector(`.project[data-id="${project}"]`).classList.remove("active-project");
+
+
+    document.querySelectorAll(".project").forEach(project => {
+        if (project.dataset.id === currentProject) {
+            project.classList.add("active-project");
+        } else if (project.dataset.id !== currentProject) {
+            project.classList.remove("active-project");
         }
-    });
-    document.querySelector(`.project[data-id="${currentProject}"]`).classList.add("active-project");
+    })
+
+
+    // projects.forEach(project => {
+    //     if (document.querySelector(`.project[data-id="${project}"]`).classList.contains("active-project")) {
+    //         document.querySelector(`.project[data-id="${project}"]`).classList.remove("active-project");
+    //     }
+    // });
+    // document.querySelector(`.project[data-id="${currentProject}"]`).classList.add("active-project");
 }
 
 function renderProjectOnlyTasks(currentProject) {
     const tasks = document.querySelectorAll(".task");
     tasks.forEach(task => {
-        if (task.querySelector(".project-info").textContent !== currentProject) {
-            task.classList.add("task-hidden");
-        } else if (task.querySelector(".project-info").textContent === currentProject) {
+
+        if (task.dataset.project === currentProject) {
             task.classList.remove("task-hidden");
+        } else if (task.dataset.project !== currentProject) {
+            task.classList.add("task-hidden");
+        }
+    })
+}
+
+function renderAllProjects() {
+
+    // some sidebar behavior
+    const projects = document.querySelectorAll(".project");
+    projects.forEach(project => {
+        if (project.dataset.id !== "All Projects") {
+            project.classList.remove("active-project");
+        } else if (project.dataset.id === "All Projects") {
+            project.classList.add("active-project");
+        }
+    })
+
+    // tasks area behavior
+    const tasks = document.querySelectorAll(".task");
+    if (!tasks) return;
+    tasks.forEach(task => {
+        task.classList.remove("task-hidden");
+    })
+}
+
+function renderMiscProjects() {
+
+    // some sidebar behavior
+    const projects = document.querySelectorAll(".project");
+    projects.forEach(project => {
+        if (project.dataset.id !== "Miscellaneous") {
+            project.classList.remove("active-project");
+        } else if (project.dataset.id === "Miscellaneous") {
+            project.classList.add("active-project");
+        }
+    })
+
+    const tasks = document.querySelectorAll(".task");
+    if (!tasks) return;
+    tasks.forEach(task => {
+        if (task.dataset.project === "Miscellaneous") {
+            task.classList.remove("task-hidden");
+        } else if (task.dataset.project !== "Miscellaneous") {
+            task.classList.add("task-hidden");
         }
     })
 }
@@ -430,5 +526,9 @@ export {
     showCompletedTasks,
     toggleCategoryBG,
     toggleProjectInSideBar,
-    renderProjectOnlyTasks
+    renderProjectOnlyTasks,
+    renderMiscProjectsButton,
+    renderAllProjects,
+    renderMiscProjects,
+    renderAllProjectsButton
 }

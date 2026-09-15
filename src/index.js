@@ -14,7 +14,11 @@ import {
     showAllTasks,
     showActiveTasks,
     showCompletedTasks,
-    toggleCategoryBG
+    toggleCategoryBG,
+    renderMiscProjectsButton,
+    renderAllProjectsButton,
+    renderAllProjects,
+    renderMiscProjects
 } from "./dom-manipulation.js";
 
 import { 
@@ -41,13 +45,26 @@ burger.addEventListener("click", () => {
 
 // add event listener on the add project form, and then render the projects on screen
 const addProjectBox = document.querySelector("#add-project-box");
+
+
+const allProject = renderAllProjectsButton();
+allProject.addEventListener("click", (event) => {
+    renderAllProjects();
+})
+
+const miscProject = renderMiscProjectsButton();
+miscProject.addEventListener("click", (event) => {
+    renderMiscProjects();
+})
+
+
 addProjectBox.addEventListener("submit", (event) => {
     event.preventDefault();
     const projectFormData = new FormData(addProjectBox);
     addProject(projectFormData);
     renderProjectInSidebar(getProjects());
-    console.log(getProjects());
-    projectEL(getProjects());
+    const allProjects = getProjects();
+    projectEL(allProjects);
 })
 
 // add event listener to display the window

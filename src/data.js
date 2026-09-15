@@ -52,8 +52,8 @@ let arrayOfTasks = [
     // }
 ];
 
-let projects = [];
-let currentProject;
+let projects = ["Miscellaneous"];
+let currentProject = "All Projects";
 
 function saveData(title, description, priority, project) {
     let latestTask = createTaskObject(title, description, priority, project);
@@ -92,6 +92,7 @@ function getProjects() {
         .filter(p => p && p !== "Miscellaneous");
     return [...new Set([...projects, ...taskProjects])];
 }
+
 
 function addProject(projectFormData) {
     const project = projectFormData.get("project-name");

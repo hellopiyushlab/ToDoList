@@ -31,11 +31,12 @@
     - [x] event listeners on new tasks
     - [x] priority change event listener
     - [x] categories css change logic
-- [x] make projects work
+- [ ] make projects work
     - [x] project switching logic
     - [x] reload the relevant tasks on screen
-- [ ] add a all projects in projects that renders on page load
-- [ ] make projects and categories work together
+    - [x] all projects and miscellaneous working
+    - [x] css toggling on both all projects and miscellaneous
+    - [ ] make projects and categories work together
 - [ ] make the edit and delete for tasks work
     - [ ] load a small div with options
     - [ ] edit function
