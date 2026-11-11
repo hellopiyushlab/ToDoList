@@ -36,6 +36,9 @@
     - [x] reload the relevant tasks on screen
     - [x] all projects and miscellaneous working
     - [x] css toggling on both all projects and miscellaneous
+
+<!-- working from here right now -->
+
     - [ ] make projects and categories work together
 - [ ] make the edit and delete for tasks work
     - [ ] load a small div with options
