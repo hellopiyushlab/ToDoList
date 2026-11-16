@@ -144,7 +144,9 @@ function generateTaskInDOM(latestTask) {
     const task = document.createElement("div");
     task.setAttribute("class", "task");
     task.setAttribute("data-id", latestTask.id);
-    task.setAttribute("data-project", latestTask.taskProject);
+    task.setAttribute("data-priority", latestTask.priority);
+    task.setAttribute("data-project", latestTask.project);
+    task.setAttribute("data-completed", latestTask.completed);
     tasks.appendChild(task);
 
         const row1 = document.createElement("div");
@@ -165,7 +167,7 @@ function generateTaskInDOM(latestTask) {
 
             const title = document.createElement("div");
             title.setAttribute("class", "title");
-            title.textContent = latestTask.taskTitle;
+            title.textContent = latestTask.title;
             row1.appendChild(title);
 
             const optionsContainer = document.createElement("div");
@@ -182,7 +184,7 @@ function generateTaskInDOM(latestTask) {
         let description;
         let row2;
         let arrowDiv;
-        if (latestTask.taskDescription != "") {
+        if (latestTask.desc != "") {
 
             // add row
             row2 = document.createElement("div");
@@ -206,14 +208,14 @@ function generateTaskInDOM(latestTask) {
 
             description = document.createElement("div");
             description.setAttribute("class", "description");
-            description.textContent = latestTask.taskDescription;
+            description.textContent = latestTask.desc;
             row2.appendChild(description);
         }
 
         let priorityColor;
         let priority;
         if (
-            latestTask.taskPriority != "none" || latestTask.taskProject != "Miscellaneous"
+            latestTask.priority != "none" || latestTask.project != "Miscellaneous"
         ) {
             const row3 = document.createElement("div");
             row3.setAttribute("class", "row3");
@@ -224,7 +226,7 @@ function generateTaskInDOM(latestTask) {
             row3.appendChild(emptyDiv);
 
             const projectInfo = document.createElement("div");
-            projectInfo.textContent = latestTask.taskProject;
+            projectInfo.textContent = latestTask.project;
             projectInfo.setAttribute("class", "project-info");
             row3.appendChild(projectInfo);
 
@@ -243,17 +245,17 @@ function generateTaskInDOM(latestTask) {
             row3.appendChild(priorityColor);
 
             priority = document.createElement("div");
-            priority.textContent = latestTask.taskPriority.charAt(0).toUpperCase() + latestTask.taskPriority.slice(1) + " Priority";
+            priority.textContent = latestTask.priority.charAt(0).toUpperCase() + latestTask.priority.slice(1) + " Priority";
             priority.dataset.originalText = priority.textContent;
             priority.setAttribute("class", "priority-div");
             row3.appendChild(priority);
         } 
 
-        if (latestTask.taskPriority === "low") {
+        if (latestTask.priority === "low") {
             priorityColor.classList.add("low-priority-color");
-        } else if (latestTask.taskPriority === "medium") {
+        } else if (latestTask.priority === "medium") {
             priorityColor.classList.add("medium-priority-color");
-        } else if (latestTask.taskPriority === "high") {
+        } else if (latestTask.priority === "high") {
             priorityColor.classList.add("high-priority-color");
         }
 
