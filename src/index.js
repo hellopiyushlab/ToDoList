@@ -9,6 +9,7 @@ import {
 import { 
     toggleSideBar,
     renderProjects,
+    generateAddTaskWindow,
 } from "./dom-manipulation.js";
 
 
@@ -30,4 +31,10 @@ addProjectBox.addEventListener("submit", (event) => {
     console.log(projectName);
     addProject(projectName);
     renderProjects(getProjects());
+})
+
+
+// event listener on add task button
+document.querySelector("#add-task-button").addEventListener("click", (event) => {
+    generateAddTaskWindow(getProjects());
 })
