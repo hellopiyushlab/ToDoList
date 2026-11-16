@@ -37,6 +37,7 @@ function loadBaseElements() {
     };
 }
 
+
 function generateAddTaskWindow(projects) {
 
     // select the body
@@ -307,27 +308,6 @@ function expandDescription(el) {
     }
 }
 
-function renderProjectInSidebar(projects) {
-    // I should do this with data only as well
-
-    const projectsList = document.querySelector("#projects-list");
-    const allProjectsButton = document.querySelector("#all-projects");
-    projectsList.replaceChildren();
-    projectsList.appendChild(allProjectsButton);
-
-    for (let project of projects) {
-        const projectElement = document.createElement("div");
-        projectElement.setAttribute("class", "project");
-        projectElement.dataset.id = project;
-        const projectName = document.createElement("span");
-        projectName.textContent = project;
-        const dotIcon = document.createElement("i");
-        dotIcon.classList.add("fa-solid", "fa-ellipsis");
-        projectElement.append(projectName, dotIcon);
-        projectsList.appendChild(projectElement);
-    }
-}
-
 function renderMiscProjectsButton() {
     const projectElement = document.createElement("div");
     projectElement.setAttribute("id", "misc-projects");
@@ -350,7 +330,7 @@ function renderAllProjectsButton() {
     const projectElement = document.createElement("div");
     projectElement.setAttribute("id", "all-projects");
     projectElement.setAttribute("class", "project");
-    projectElement.dataset.id = "All Projects";
+    projectElement.dataset.id = "All Projects"; // we set an id for this
 
     const projectName = document.createElement("span");
     projectName.textContent = "All Projects";
@@ -361,7 +341,7 @@ function renderAllProjectsButton() {
 
     const projectsList = document.querySelector("#projects-list");
     projectsList.appendChild(projectElement);
-
+    console.log(projectElement);
     return projectElement;
 }
 
@@ -511,11 +491,38 @@ function renderMiscProjects() {
     })
 }
 
+
+// ---------------------------------------------------------------------------------
+
+
+
+function renderProjects(projects){
+    const projectsList = document.querySelector("#projects-list");
+    projectsList.replaceChildren();
+
+    for (let project of projects) {
+        const projectElement = document.createElement("div");
+        projectElement.setAttribute("class", "project");
+        projectElement.dataset.id = project;
+        const projectName = document.createElement("span");
+        projectName.textContent = project;
+        const dotIcon = document.createElement("i");
+        dotIcon.classList.add("fa-solid", "fa-ellipsis");
+        projectElement.append(projectName, dotIcon);
+        projectsList.appendChild(projectElement);
+    }
+}
+
+
+function renderTasks() {
+
+}
+
+
 export {
     generateAddTaskWindow,
     generateTaskInDOM,
     expandDescription,
-    renderProjectInSidebar,
     toggleSideBar,
     blurTask,
     toggleTaskIcon,
@@ -530,5 +537,6 @@ export {
     renderMiscProjectsButton,
     renderAllProjects,
     renderMiscProjects,
-    renderAllProjectsButton
+    renderAllProjectsButton,
+    renderProjects
 }

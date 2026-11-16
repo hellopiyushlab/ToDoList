@@ -1,135 +1,29 @@
-// data.js
-
-let arrayOfTasks = [
-    // dummy data :
-    // {
-    //     id: "1",
-    //     taskTitle: "Learn JavaScript",
-    //     Project: "Odin Project",
-    //     status: false
-    // },
-    // {
-    //     id: "2",
-    //     taskTitle: "Draw for 30 minutes",
-    //     Project: "Art",
-    //     status: false
-    // },
-    // {
-    //     id: "3",
-    //     taskTitle: "Build Todo List",
-    //     Project: "Odin Project",
-    //     status: false
-    // },
-    // {
-    //     id: "4",
-    //     taskTitle: "Watch anime",
-    //     Project: "none",
-    //     status: true
-    // },
-    // {
-    //     id: "5",
-    //     taskTitle: "Read a book",
-    //     Project: "Personal",
-    //     status: false
-    // },
-    // {
-    //     id: "6",
-    //     taskTitle: "Practice CSS",
-    //     Project: "Odin Project",
-    //     status: false
-    // },
-    // {
-    //     id: "7",
-    //     taskTitle: "Go for a walk",
-    //     Project: "Personal",
-    //     status: true
-    // },
-    // {
-    //     id: "8",
-    //     taskTitle: "Clean room",
-    //     Project: "none",
-    //     status: false
-    // }
-];
-
-let projects = ["Miscellaneous"];
-let currentProject = "All Projects";
-
-function saveData(title, description, priority, project) {
-    let latestTask = createTaskObject(title, description, priority, project);
-    latestTask.completed = false;
-    arrayOfTasks.push(latestTask);
-    return latestTask;
+let data = {
+    projects: ["Miscellaneous"],
+    options: ["All Tasks", "Active", "Completed"],
 }
 
-
-// factory function for creating objects
-function createTaskObject(title, description, priority, project) {
-    const taskTitle = title;
-    const taskDescription = description;
-    const taskPriority = priority;
-    const taskProject = project;
-    const id = crypto.randomUUID(); 
-    return {
-        taskTitle,
-        taskDescription,
-        taskPriority,
-        taskProject,
-        id,
-    }
+let currentPageState = {
+    projects: [],
+    option: "",
 }
-
-function getData() {
-    return arrayOfTasks;
-}
-
-
 
 function getProjects() {
-    // i, personally, have no idea what is going on here
-    const taskProjects = arrayOfTasks
-        .map(task => task.taskProject)     
-        .filter(p => p && p !== "Miscellaneous");
-    return [...new Set([...projects, ...taskProjects])];
+    return data.projects;
 }
 
+function addProject(projectName) {
+    // takes the name of the project
+    // and adds it to the data
 
-function addProject(projectFormData) {
-    const project = projectFormData.get("project-name");
-
-    if (!projects.includes(project)) {
-        projects.push(project);
+    // check for empty string and pre-existing project name
+    if (projectName.trim() !== "" && !data.projects.includes(projectName)) {
+        data.projects.push(projectName);
+        console.log(data.projects);
     }
-}
-
-function changeTaskStateInArray(uuid) {
-    if (arrayOfTasks.find(task => task.id === uuid).completed === true) {
-        arrayOfTasks.find(task => task.id === uuid).completed = false;
-    } else if (arrayOfTasks.find(task => task.id === uuid).completed === false) {
-        arrayOfTasks.find(task => task.id === uuid).completed = true;
-    }
-    console.log(arrayOfTasks);
-}
-
-function getTaskStatus(uuid) {
-    return arrayOfTasks.find(task => task.id === uuid).completed;
-}
-
-function updateCurrentProject(project) {
-    currentProject = project;
-}
-
-function getCurrentProject() {
-    return currentProject;
 }
 
 export {
-    saveData,
-    getData,
-    getProjects,
     addProject,
-    changeTaskStateInArray,
-    getTaskStatus,
-    updateCurrentProject,
-    getCurrentProject
+    getProjects,
 }
